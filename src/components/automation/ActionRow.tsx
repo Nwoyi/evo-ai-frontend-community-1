@@ -14,7 +14,6 @@ import { Trash2 } from 'lucide-react';
 import {
   ALL_ACTION_NAMES,
   actionRegistry,
-  getDefaultActionForName,
   type AutomationRuleFormData,
 } from '@/pages/Customer/Automation/registries';
 import type { AutomationFormData } from '@/hooks/automation/useAutomationFormData';
@@ -314,5 +313,3 @@ function asString(value: unknown, idx: number): string {
   }
   return '';
 }
-
-export { getDefaultActionForName };
