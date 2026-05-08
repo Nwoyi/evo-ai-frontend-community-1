@@ -7,9 +7,10 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 env:
-  IMAGE_NAME: evoapicloud/evo-ai-frontend-community
+  IMAGE_NAME: ghcr.io/nwoyi/hyvelox-frontend
 
 jobs:
   build:
@@ -30,8 +31,9 @@ jobs:
 
       - uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push by digest
         id: build
@@ -43,12 +45,9 @@ jobs:
           push: true
           provenance: mode=max
           sbom: true
-          build-args: |
-            VITE_API_URL=${{ vars.VITE_API_URL }}
-            VITE_AUTH_API_URL=${{ vars.VITE_AUTH_API_URL }}
-            VITE_WS_URL=${{ vars.VITE_WS_URL }}
-            VITE_EVOAI_API_URL=${{ vars.VITE_EVOAI_API_URL }}
-            VITE_AGENT_PROCESSOR_URL=${{ vars.VITE_AGENT_PROCESSOR_URL }}
+          # Note: VITE_* values are NOT baked at build time — Dockerfile uses
+          # ENV ...=*_PLACEHOLDER, and docker-entrypoint.sh substitutes them at
+          # container startup using runtime env. Build-args here would be ignored.
           outputs: type=image,name=${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true
           cache-from: type=gha,scope=${{ matrix.platform }}
           cache-to: type=gha,scope=${{ matrix.platform }},mode=max
@@ -80,8 +79,9 @@ jobs:
 
       - uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Resolve tags
         id: tags
