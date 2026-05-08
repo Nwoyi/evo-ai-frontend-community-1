@@ -51,7 +51,7 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
       setSessions(validSessions);
     } catch (error) {
       console.error('Error loading sessions:', error);
-      toast.error('Erro ao carregar sessões');
+      toast.error('Failed to load sessions');
       // Clear sessions on error to avoid showing stale data
       setSessions([]);
     } finally {
@@ -85,7 +85,7 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
           const httpStatus = error?.response?.status;
 
           if (httpStatus === 404) {
-            toast.error('Sessão não encontrada');
+            toast.error('Session not found');
             setSessions(prev => prev.filter(s => s.id !== sessionId));
             setSelectedSessionId(null);
             setMessages([]);
@@ -99,7 +99,7 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
       }
 
       console.error('Error loading messages:', lastError);
-      toast.error('Erro ao carregar mensagens. Tente novamente.');
+      toast.error('Failed to load messages. Try again.');
     } finally {
       setIsLoading(false);
     }
@@ -120,11 +120,11 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
         await loadSessions();
       } else {
         console.error('No session_id returned from backend');
-        toast.error('Erro ao criar sessão: ID não retornado');
+        toast.error('Failed to create session: no ID returned');
       }
     } catch (error: any) {
       console.error('Error creating session:', error);
-      const errorMessage = error?.response?.data?.detail || error?.message || 'Erro ao criar sessão';
+      const errorMessage = error?.response?.data?.detail || error?.message || 'Failed to create session';
       toast.error(errorMessage);
     } finally {
       setIsLoading(false);
@@ -141,7 +141,7 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
         setSelectedSessionId(null);
         setMessages([]);
       }
-      toast.success('Sessão deletada com sucesso');
+      toast.success('Session deleted successfully');
     } catch (error: any) {
       console.error('Error deleting session:', error);
       // If session not found (404), remove it from the list anyway
@@ -151,9 +151,9 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
           setSelectedSessionId(null);
           setMessages([]);
         }
-        toast.success('Sessão removida');
+        toast.success('Session removed');
       } else {
-        toast.error('Erro ao deletar sessão');
+        toast.error('Failed to delete session');
         // Reload sessions to sync with backend
         await loadSessions();
       }
@@ -166,7 +166,7 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
 
     // Require session to be selected - don't create automatically
     if (!selectedSessionId) {
-      toast.error('Por favor, selecione uma conversa ou crie uma nova antes de enviar uma mensagem');
+      toast.error('Please select a conversation or create a new one before sending a message');
       return;
     }
 
@@ -236,7 +236,7 @@ export function AgentChatProvider({ children, agentId }: AgentChatProviderProps)
         error?.response?.data?.error?.message ||
         error?.response?.data?.detail ||
         error?.message ||
-        'Erro ao enviar mensagem';
+        'Failed to send message';
       toast.error(errorDetail);
     } finally {
       setIsSending(false);

@@ -16,13 +16,13 @@ export interface StatusConfig {
  */
 export const getStatusLabel = (status: string): string => {
   const statusMap: Record<string, string> = {
-    open: 'Aberta',
-    resolved: 'Resolvida',
-    pending: 'Pendente',
-    snoozed: 'Pausada',
+    open: 'Open',
+    resolved: 'Resolved',
+    pending: 'Pending',
+    snoozed: 'Snoozed',
   };
 
-  return statusMap[status] || 'Desconhecido';
+  return statusMap[status] || 'Unknown';
 };
 
 /**
@@ -31,26 +31,26 @@ export const getStatusLabel = (status: string): string => {
 export const getStatusConfig = (status: string): StatusConfig => {
   const configs: Record<string, StatusConfig> = {
     open: {
-      label: 'Aberta',
-      description: 'Conversa ativa e em andamento',
+      label: 'Open',
+      description: 'Active conversation in progress',
       color: 'text-green-600',
       bgColor: 'bg-green-100',
     },
     pending: {
-      label: 'Pendente',
-      description: 'Aguardando resposta do cliente',
+      label: 'Pending',
+      description: 'Waiting for customer reply',
       color: 'text-yellow-600',
       bgColor: 'bg-yellow-100',
     },
     resolved: {
-      label: 'Resolvida',
-      description: 'Conversa finalizada com sucesso',
+      label: 'Resolved',
+      description: 'Conversation closed successfully',
       color: 'text-blue-600',
       bgColor: 'bg-blue-100',
     },
     snoozed: {
-      label: 'Pausada',
-      description: 'Conversa temporariamente pausada',
+      label: 'Snoozed',
+      description: 'Conversation temporarily paused',
       color: 'text-gray-600',
       bgColor: 'bg-gray-100',
     },
@@ -58,8 +58,8 @@ export const getStatusConfig = (status: string): StatusConfig => {
 
   return (
     configs[status] || {
-      label: 'Desconhecido',
-      description: 'Status não identificado',
+      label: 'Unknown',
+      description: 'Unidentified status',
       color: 'text-gray-600',
       bgColor: 'bg-gray-100',
     }

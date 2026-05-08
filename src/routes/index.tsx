@@ -108,7 +108,7 @@ const ChatRouteElement = (
       <MainLayout>
         <PermissionRoute resource="conversations" action="read">
           <Suspense
-            fallback={<div className="flex items-center justify-center h-full">Carregando...</div>}
+            fallback={<div className="flex items-center justify-center h-full">Loading…</div>}
           >
             <ChatPage />
           </Suspense>
@@ -799,9 +799,9 @@ const AppRouter = () => {
                       <div className="p-6">
                         <div className="h-full flex items-center justify-center">
                           <div className="text-center">
-                            <h2 className="text-2xl font-bold mb-2">🔧 Configuração</h2>
+                            <h2 className="text-2xl font-bold mb-2">🔧 Configuration</h2>
                             <p className="text-muted-foreground">
-                              Página de configuração em desenvolvimento
+                              Configuration page in development
                             </p>
                           </div>
                         </div>
@@ -880,7 +880,7 @@ const AppRouter = () => {
                       <div className="flex items-center justify-center h-full">
                         <div className="text-center">
                           <h2 className="text-2xl font-bold mb-2">🤖 Bots</h2>
-                          <p className="text-muted-foreground">Página em desenvolvimento</p>
+                          <p className="text-muted-foreground">Page in development</p>
                         </div>
                       </div>
                     </PermissionRoute>
@@ -959,8 +959,8 @@ const AppRouter = () => {
                     <PermissionRoute resource="reports" action="read">
                       <div className="flex items-center justify-center h-full">
                         <div className="text-center">
-                          <h2 className="text-2xl font-bold mb-2">📊 Relatórios</h2>
-                          <p className="text-muted-foreground">Página em desenvolvimento</p>
+                          <h2 className="text-2xl font-bold mb-2">📊 Reports</h2>
+                          <p className="text-muted-foreground">Page in development</p>
                         </div>
                       </div>
                     </PermissionRoute>

@@ -21,8 +21,8 @@ const DashboardTrendsSection = ({ data, t, channelShareData }: DashboardTrendsSe
 
   const hasResultsData = data.trends.response_time_daily.length > 0;
   const responseTimeCardDescription = hasResultsData
-    ? tx('dashboard.charts.sessionDescription', 'Média diária das sessões por dia')
-    : tx('dashboard.charts.emptyState', 'Sem dados no período selecionado');
+    ? tx('dashboard.charts.sessionDescription', 'Daily session average')
+    : tx('dashboard.charts.emptyState', 'No data in the selected period');
 
   const topChannel = data.channels[0];
   const top3Share = data.channels.slice(0, 3).reduce((sum, channel) => sum + channel.percentage, 0);
@@ -31,17 +31,17 @@ const DashboardTrendsSection = ({ data, t, channelShareData }: DashboardTrendsSe
   return (
     <section className="space-y-4">
       <div>
-        <h2 className="text-lg font-semibold">{tx('dashboard.sections.trends', 'Tendências no tempo')}</h2>
+        <h2 className="text-lg font-semibold">{tx('dashboard.sections.trends', 'Trends over time')}</h2>
         <p className="text-sm text-muted-foreground mt-1">
-          {tx('dashboard.sections.trendsSubtitle', 'Evolução da operação ao longo do período filtrado')}
+          {tx('dashboard.sections.trendsSubtitle', 'Operation evolution across the filtered period')}
         </p>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         <div data-tour="dashboard-trends-conversations" className="h-full">
           <AreaChartCard
-            title={t('dashboard.charts.visitorsTrend') || 'Conversas por dia'}
-            description={t('dashboard.charts.visitorsDescription') || 'Tendência diária de conversas no período'}
+            title={t('dashboard.charts.visitorsTrend') || 'Conversations per day'}
+            description={t('dashboard.charts.visitorsDescription') || 'Daily conversation trend in the period'}
             data={data.trends.conversations_daily}
             icon={TrendingUp}
             color="#22c55e"
@@ -54,7 +54,7 @@ const DashboardTrendsSection = ({ data, t, channelShareData }: DashboardTrendsSe
 
         <div data-tour="dashboard-trends-response" className="h-full">
           <BarChartCard
-            title={t('dashboard.charts.sessionDuration') || 'Tempo de 1ª resposta por dia'}
+            title={t('dashboard.charts.sessionDuration') || 'First response time per day'}
             description={responseTimeCardDescription}
             data={data.trends.response_time_daily}
             icon={BarChart3}
@@ -71,14 +71,14 @@ const DashboardTrendsSection = ({ data, t, channelShareData }: DashboardTrendsSe
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         <div data-tour="dashboard-channel-participation" className="h-full">
           <DonutChartCard
-            title={t('dashboard.charts.channelShare') || 'Participação por canal'}
-            description={t('dashboard.charts.channelShareDescription') || 'Distribuição percentual de conversas por canal'}
+            title={t('dashboard.charts.channelShare') || 'Share by channel'}
+            description={t('dashboard.charts.channelShareDescription') || 'Percentage distribution of conversations by channel'}
             data={channelShareData}
             icon={Layers}
             gradientFrom="#ec4899"
             gradientTo="#8b5cf6"
-            centerLabel={tx('dashboard.charts.channelsLabel', 'Canais')}
-            centerValue={tx('dashboard.charts.shareLabel', 'Participação')}
+            centerLabel={tx('dashboard.charts.channelsLabel', 'Channels')}
+            centerValue={tx('dashboard.charts.shareLabel', 'Share')}
             tooltip={{ title: tTours('dashboard.step11.title'), content: tTours('dashboard.step11.content') }}
           />
         </div>
@@ -86,14 +86,14 @@ const DashboardTrendsSection = ({ data, t, channelShareData }: DashboardTrendsSe
         <Card data-tour="dashboard-channel-insights">
           <CardHeader className="pb-2">
             <CardTitle className="text-base flex items-center gap-2">
-              {tx('dashboard.channels.insights', 'Insights de canais')}
+              {tx('dashboard.channels.insights', 'Channel insights')}
               <TooltipInfo title={tTours('dashboard.step12.title')} content={tTours('dashboard.step12.content')} />
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="rounded-md border p-3 bg-muted/10 flex items-center justify-between gap-3">
               <div>
-                <div className="text-sm text-muted-foreground">{tx('dashboard.channels.topChannel', 'Canal líder')}</div>
+                <div className="text-sm text-muted-foreground">{tx('dashboard.channels.topChannel', 'Top channel')}</div>
                 <div className="font-semibold">{topChannel?.name || '-'}</div>
               </div>
               <Badge variant="secondary">{topChannel?.percentage?.toFixed(2) || '0.00'}%</Badge>
@@ -101,17 +101,17 @@ const DashboardTrendsSection = ({ data, t, channelShareData }: DashboardTrendsSe
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="rounded-md border p-3 bg-muted/10">
-                <div className="text-sm text-muted-foreground">{tx('dashboard.channels.concentration', 'Concentração Top 3')}</div>
+                <div className="text-sm text-muted-foreground">{tx('dashboard.channels.concentration', 'Top 3 concentration')}</div>
                 <div className="text-xl font-semibold">{top3Share.toFixed(2)}%</div>
               </div>
               <div className="rounded-md border p-3 bg-muted/10">
-                <div className="text-sm text-muted-foreground">{tx('dashboard.channels.activeCount', 'Canais ativos')}</div>
+                <div className="text-sm text-muted-foreground">{tx('dashboard.channels.activeCount', 'Active channels')}</div>
                 <div className="text-xl font-semibold">{data.channels.length}</div>
               </div>
             </div>
 
             <div className="rounded-md border p-3 bg-muted/10">
-              <div className="text-sm text-muted-foreground">{tx('dashboard.channels.totalValue', 'Valor total por canais')}</div>
+              <div className="text-sm text-muted-foreground">{tx('dashboard.channels.totalValue', 'Total value across channels')}</div>
               <div className="text-xl font-semibold">{formatCurrency(channelsRevenue)}</div>
             </div>
           </CardContent>

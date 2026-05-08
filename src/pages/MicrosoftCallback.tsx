@@ -11,7 +11,7 @@ export default function MicrosoftCallback() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [status, setStatus] = useState<'processing' | 'success' | 'error'>('processing');
-  const [message, setMessage] = useState('Processando autorização...');
+  const [message, setMessage] = useState('Processing authorization…');
   const [hasProcessed, setHasProcessed] = useState(false);
 
   const handleMicrosoftCallback = async () => {
@@ -27,19 +27,19 @@ export default function MicrosoftCallback() {
 
       if (error) {
         setStatus('error');
-        setMessage(errorDescription || `Erro de autorização: ${error}`);
+        setMessage(errorDescription || `Authorization error: ${error}`);
         toast.error(errorDescription || error);
         return;
       }
 
       if (!code || !state) {
         setStatus('error');
-        setMessage('Código de autorização ou state não encontrado');
-        toast.error('Código de autorização ou state não encontrado');
+        setMessage('Authorization code or state not found');
+        toast.error('Authorization code or state not found');
         return;
       }
 
-      setMessage('Processando autorização do Microsoft...');
+      setMessage('Processing Microsoft authorization…');
 
       // Call backend Microsoft callback endpoint
       const response = await oauthCallbackService.handleMicrosoftCallback(
@@ -49,15 +49,15 @@ export default function MicrosoftCallback() {
 
       if (response?.success) {
         setStatus('success');
-        setMessage('Outlook conectado com sucesso!');
-        toast.success('Outlook conectado com sucesso!');
+        setMessage('Outlook connected successfully!');
+        toast.success('Outlook connected successfully!');
 
         // Redirect to channels list after success (same as Google/Instagram)
         setTimeout(() => {
           navigate('/channels');
         }, 2000);
       } else {
-        throw new Error(response?.error || 'Erro ao conectar Outlook');
+        throw new Error(response?.error || 'Failed to connect Outlook');
       }
     } catch (error) {
       console.error('Microsoft callback error:', error);
@@ -66,7 +66,7 @@ export default function MicrosoftCallback() {
         (error as { response?: { data?: { error?: string } }; message?: string })?.response?.data
           ?.error ||
         (error as { message?: string })?.message ||
-        'Erro ao processar autorização do Microsoft';
+        'Failed to process Microsoft authorization';
 
       setMessage(errorMessage);
 
@@ -74,7 +74,7 @@ export default function MicrosoftCallback() {
         (error as { response?: { data?: { error?: string } }; message?: string })?.response?.data
           ?.error ||
         (error as { message?: string })?.message ||
-        'Erro desconhecido ao conectar Outlook'
+        'Unknown error connecting Outlook'
       );
     }
   };
@@ -132,9 +132,9 @@ export default function MicrosoftCallback() {
               {getStatusIcon()}
               <div className="space-y-2">
                 <p className={`text-lg font-semibold ${getStatusColor()}`}>
-                  {status === 'processing' && 'Processando...'}
-                  {status === 'success' && 'Sucesso!'}
-                  {status === 'error' && 'Erro'}
+                  {status === 'processing' && 'Processing…'}
+                  {status === 'success' && 'Success!'}
+                  {status === 'error' && 'Error'}
                 </p>
                 <p className="text-sm text-muted-foreground max-w-sm">{message}</p>
               </div>
@@ -142,13 +142,13 @@ export default function MicrosoftCallback() {
 
             {status === 'success' && (
               <div className="text-xs text-muted-foreground animate-pulse">
-                Redirecionando...
+                Redirecting…
               </div>
             )}
 
             {status === 'error' && (
               <div className="text-xs text-muted-foreground pt-4 border-t">
-                <p>Você pode fechar esta janela.</p>
+                <p>You may close this window.</p>
               </div>
             )}
           </div>
