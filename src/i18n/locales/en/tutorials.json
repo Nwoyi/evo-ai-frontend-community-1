@@ -1,4 +1,8 @@
 {
   "title": "Tutorials",
-  "description": "Learn how to use the platform with our interactive tutorials."
+  "description": "Walkthrough videos to help you get up and running fast.",
+  "emptyState": {
+    "title": "Tutorials coming soon",
+    "description": "We're recording walkthrough videos for you. Check back here in a few days, or email support@hyvelox.com if you need help getting started."
+  }
 }

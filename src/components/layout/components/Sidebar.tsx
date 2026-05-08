@@ -99,14 +99,10 @@ export default function Sidebar({
                   {t('sidebar.footer.copyright', { year: currentYear })}
                 </div>
                 <div className="mt-2 flex flex-col gap-1 text-xs">
-                  <a
-                    href="https://hyvelox.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {t('sidebar.footer.documentation')}
-                  </a>
+                  {/* Documentation link intentionally omitted — restore once a
+                      real docs site exists at docs.hyvelox.com or similar.
+                      Pointing at hyvelox.com today returns 404, which looks
+                      worse than no link. */}
                   <a
                     href={supportWhatsappUrl}
                     target="_blank"
