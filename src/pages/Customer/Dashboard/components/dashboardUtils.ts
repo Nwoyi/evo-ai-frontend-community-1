@@ -1,7 +1,10 @@
+// US-first launch — USD/$. When we onboard non-US customers, switch to a
+// per-account currency setting (account.currency from the Rails backend) or
+// to a locale-driven mapping based on i18n.language.
 export const formatCurrency = (value: number) => {
-  return new Intl.NumberFormat('pt-BR', {
+  return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'BRL',
+    currency: 'USD',
   }).format(value);
 };
 

@@ -42,7 +42,9 @@ export default function Sidebar({
   const currentYear = new Date().getFullYear();
 
   const companyName = t('sidebar.footer.brand');
-  const supportWhatsappUrl = 'https://api.whatsapp.com/send/?phone=553196219989&text=Ol%C3%A1%21+Preciso+de+suporte.&type=phone_number&app_absent=0';
+  // Hyvelox support — email for now; swap to a real channel (Intercom, in-app
+  // ticketing, WhatsApp) once we pick one.
+  const supportWhatsappUrl = 'mailto:support@hyvelox.com';
 
   const mainMenuItems = menuItems.filter(item => item.href !== '/tutorials');
   const tutorialsItem = menuItems.find(item => item.href === '/tutorials');
@@ -98,7 +100,7 @@ export default function Sidebar({
                 </div>
                 <div className="mt-2 flex flex-col gap-1 text-xs">
                   <a
-                    href="https://docs.evolutionfoundation.com.br/"
+                    href="https://hyvelox.com"
                     target="_blank"
                     rel="noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors"
