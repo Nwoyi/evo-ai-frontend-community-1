@@ -1,13 +1,33 @@
+Hyvelox Frontend
+Copyright 2026 Hyvelox.
+
+This product is a brand-modified fork of Evo CRM Frontend, originally developed
+by Evolution Foundation (https://evolutionfoundation.com.br) and made available
+under the Apache License 2.0.
+
+Original work
+-------------
 Evo CRM Frontend
 Copyright 2026 Evolution Foundation
+Source: https://github.com/evolution-foundation/evo-ai-frontend-community
 
-This product includes software developed by Evolution Foundation
-(https://evolutionfoundation.com.br).
+Modifications
+-------------
+This distribution has been modified by Hyvelox. Modifications include but are
+not limited to: replacement of brand assets (logo, wordmark, favicon, and color
+palette), product naming, copyright lines, in-app strings, and documentation.
+
+In accordance with the upstream Trademark and Brand Assets Policy
+(see the upstream TRADEMARKS.md §4.2), all Evolution Foundation trademarks and
+the "evocrm-frontend" / "Evo CRM Frontend" brand assets have been removed from
+the modified user interface. This product is not endorsed by, affiliated with,
+or sponsored by Evolution Foundation.
 
 Trademark notice
+----------------
 "Evolution Foundation", "Evolution" and "Evo CRM Frontend" are trademarks of
-Evolution Foundation. The Evo CRM Frontend logo, wordmark, and visual identity
-are governed by the Trademark and Brand Assets Policy included in this
-repository (TRADEMARKS.md).
+Evolution Foundation and are referenced here solely for accurate attribution
+under Apache License 2.0 §4(c) and §6.
 
-
+"Hyvelox" is a trademark of Hyvelox. See TRADEMARKS.md in this repository for
+the Hyvelox brand assets policy.

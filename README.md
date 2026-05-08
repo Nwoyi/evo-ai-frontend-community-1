@@ -1,46 +1,42 @@
-<p align="center">
-  <a href="https://evolutionfoundation.com.br">
-    <img src="./public/hover-evolution.png" alt="Evolution Foundation" />
-  </a>
-</p>
-
-<h1 align="center">Evo CRM Frontend</h1>
+<h1 align="center">Hyvelox Frontend</h1>
 
 <p align="center">
-  Modern web interface for the Evo CRM Community — built with React, TypeScript and Vite.
+  Multi-channel AI customer-support web app — built with React, TypeScript and Vite.
 </p>
 
 <p align="center">
-  <a href="https://github.com/evolution-foundation/evo-ai-frontend-community/releases/latest"><img src="https://img.shields.io/github/v/release/evolution-foundation/evo-ai-frontend-community?include_prereleases&label=version&color=00ffa7" alt="Latest version" /></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache 2.0" /></a>
-  <a href="https://docs.evolutionfoundation.com.br"><img src="https://img.shields.io/badge/Docs-evolutionfoundation.com.br-00ffa7" alt="Documentation" /></a>
-  <a href="https://evolutionfoundation.com.br/community"><img src="https://img.shields.io/badge/Community-Join%20us-white" alt="Community" /></a>
+  <a href="https://hyvelox.com"><img src="https://img.shields.io/badge/Site-hyvelox.com-1F7A8C" alt="Site" /></a>
 </p>
 
 <p align="center">
-  <a href="https://evolutionfoundation.com.br">Website</a> &middot;
-  <a href="https://docs.evolutionfoundation.com.br">Documentation</a> &middot;
-  <a href="https://evolutionfoundation.com.br/community">Community</a> &middot;
-  <a href="mailto:suporte@evofoundation.com.br">Support</a>
+  <a href="https://hyvelox.com">Website</a> &middot;
+  <a href="mailto:support@hyvelox.com">Support</a>
 </p>
 
 ---
 
 ## About
 
-**Evo CRM Frontend** is the web interface of the Evo CRM Community — a modern React application providing the full user experience for conversations, contacts, agents, channels, automations, reports, and settings.
+**Hyvelox Frontend** is the web interface of Hyvelox — a multi-channel AI
+customer-support SaaS providing the user experience for conversations, contacts,
+agents, channels, automations, reports, and settings.
 
-Built with React 19, TypeScript, Vite, TailwindCSS 4 and an in-house design system, it delivers a fast, accessible, dark-mode-first experience aligned with the Evo CRM visual identity.
+Built with React 19, TypeScript, Vite, TailwindCSS 4 and an in-house design
+system, it delivers a fast, accessible, dark-mode-first experience aligned with
+the Hyvelox visual identity.
 
-## Part of the Evo CRM Community
+## Upstream
 
-Evo CRM Frontend is part of the [Evo CRM Community](https://github.com/evolution-foundation/evo-crm-community) ecosystem maintained by Evolution Foundation. To use the full stack, clone the umbrella repository with submodules:
+Hyvelox Frontend is a brand-modified fork of
+[Evo CRM Frontend](https://github.com/evolution-foundation/evo-ai-frontend-community),
+originally developed by Evolution Foundation and licensed under the Apache
+License 2.0. All Evolution Foundation trademarks and brand assets have been
+removed from the user interface per the upstream Trademark and Brand Assets
+Policy §4.2. See [NOTICE](./NOTICE) for full attribution.
 
-```bash
-git clone --recurse-submodules git@github.com:evolution-foundation/evo-crm-community.git
-```
-
-The Community Edition is **single-tenant** by design — one account, no multi-tenancy overhead, no super-admin, no billing or plans. All limits are removed and features are unlocked by default.
+The Hyvelox stack is **per-customer single-tenant** — one Docker stack per
+customer, no shared multi-tenancy at the application layer.
 
 ---
 
@@ -53,7 +49,7 @@ The Community Edition is **single-tenant** by design — one account, no multi-t
 | Build | Vite |
 | Routing | React Router 7 |
 | Styling | TailwindCSS 4 |
-| Design system | `@evoapi/design-system` |
+| Design system | `@evoapi/design-system` (vendored, internal) |
 | Forms | React Hook Form + Zod |
 | HTTP | Axios |
 | WebSocket | ActionCable |
@@ -69,13 +65,13 @@ The Community Edition is **single-tenant** by design — one account, no multi-t
 
 - **Node.js** 18+
 - **pnpm** 8+
-- **Evo CRM Backend** (`evo-ai-crm-community`) running
+- A running Hyvelox backend stack (see the umbrella `hyvelox` repository)
 
 ### Installation
 
 ```bash
-git clone git@github.com:evolution-foundation/evo-ai-frontend-community.git
-cd evo-ai-frontend-community
+git clone git@github.com:Nwoyi/evo-ai-frontend-community-1.git hyvelox-frontend
+cd hyvelox-frontend
 
 # Install dependencies
 pnpm install
@@ -161,10 +157,10 @@ For full code conventions, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Features
 
-- Bearer token authentication integrated with `evo-auth-service-community`
+- Bearer token authentication
 - Real-time WebSocket notifications via ActionCable
 - Dark/light theme with full design system
-- Internationalization (i18n) — EN, PT-BR
+- Internationalization (i18n) — EN, ES, FR, IT, PT, PT-BR
 - Conversations and chat with WhatsApp, Email, Web Widget channels
 - Contacts management with filters, search and infinite scroll
 - Channels configuration (WhatsApp, Email, SMS, etc.)
@@ -178,41 +174,46 @@ For full code conventions, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 | Resource | Link |
 |---|---|
-| Website | [evolutionfoundation.com.br](https://evolutionfoundation.com.br) |
-| Documentation | [docs.evolutionfoundation.com.br](https://docs.evolutionfoundation.com.br) |
-| Community | [evolutionfoundation.com.br/community](https://evolutionfoundation.com.br/community) |
-| Changelog | [CHANGELOG.md](./CHANGELOG.md) |
+| Website | [hyvelox.com](https://hyvelox.com) |
 | Contributing | [CONTRIBUTING.md](./CONTRIBUTING.md) |
 | Security | [SECURITY.md](./SECURITY.md) |
+| Trademarks | [TRADEMARKS.md](./TRADEMARKS.md) |
+| Upstream attribution | [NOTICE](./NOTICE) |
 
 ---
 
 ## Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to submit issues, propose features, and open pull requests.
-
-Join our [community](https://evolutionfoundation.com.br/community) to discuss ideas and collaborate.
+Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for
+guidelines on how to submit issues, propose features, and open pull requests.
 
 ---
 
 ## Security
 
-For security issues, **do not open a public issue**. Email **suporte@evofoundation.com.br** or use GitHub's private vulnerability reporting. See [SECURITY.md](./SECURITY.md) for details.
+For security issues, **do not open a public issue**. Use GitHub's private
+vulnerability reporting on this repository, or email **support@hyvelox.com**.
+See [SECURITY.md](./SECURITY.md) for details.
 
 ---
 
 ## License
 
-Evo CRM Frontend is licensed under the Apache License 2.0, with additional brand-protection conditions. See [LICENSE](./LICENSE) for details.
+Hyvelox Frontend is licensed under the Apache License 2.0. See [LICENSE](./LICENSE).
+
+This project is a brand-modified fork of Evo CRM Frontend
+(© Evolution Foundation, Apache-2.0). Full attribution is in [NOTICE](./NOTICE).
 
 ## Trademarks
 
-"Evolution Foundation", "Evolution" and "Evo CRM Frontend" are trademarks of Evolution Foundation. See [TRADEMARKS.md](./TRADEMARKS.md) for the brand assets policy.
+"Hyvelox" is a trademark of Hyvelox. See [TRADEMARKS.md](./TRADEMARKS.md) for
+the brand assets policy.
 
-Third-party attributions are documented in [NOTICE](./NOTICE).
+"Evolution Foundation", "Evolution" and "Evo CRM Frontend" are trademarks of
+Evolution Foundation and are referenced solely for accurate attribution.
 
 ---
 
 <p align="center">
-  Made by <a href="https://evolutionfoundation.com.br">Evolution Foundation</a> · © 2026
+  © 2026 Hyvelox
 </p>

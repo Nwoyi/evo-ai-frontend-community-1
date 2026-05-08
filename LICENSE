@@ -1,16 +1,23 @@
-# Evo CRM Frontend License
+# Hyvelox Frontend License
 
-Evo CRM Frontend is licensed under the Apache License 2.0, with the following additional conditions:
+Hyvelox Frontend is a brand-modified fork of Evo CRM Frontend
+(https://github.com/evolution-foundation/evo-ai-frontend-community), originally
+developed by Evolution Foundation and licensed under the Apache License 2.0.
 
-1. Evo CRM Frontend may be utilized commercially, including as a backend service for other applications or as an application development platform for enterprises. Should the conditions below be met, a commercial license must be obtained from the producer:
+In accordance with the upstream Trademark and Brand Assets Policy
+(TRADEMARKS.md §4.2), all Evolution Foundation trademarks, the "evocrm-frontend"
+wordmark and logo, and the upstream visual identity have been removed from the
+user interface and replaced with Hyvelox branding. This product is **not**
+endorsed by, affiliated with, or sponsored by Evolution Foundation.
 
-   a. **LOGO and copyright information**: In the process of using Evo CRM Frontend's frontend components, you may not remove or modify the LOGO or copyright information in the Evo CRM Frontend console or applications. This restriction is inapplicable to uses of Evo CRM Frontend that do not involve its frontend components.
+Hyvelox Frontend is licensed under the Apache License 2.0. The full text of the
+license is reproduced below.
 
-   b. **Usage Notification Requirement**: If Evo CRM Frontend is used as part of any project, including closed-source systems (e.g., proprietary software), the user is required to display a clear notification within the system that Evo CRM Frontend is being utilized. This notification should be visible to system administrators and accessible from the system's documentation or settings page. Failure to comply with this requirement may result in the necessity for a commercial license, as determined by the producer.
+The original Apache 2.0 grant from Evolution Foundation is preserved. All
+copyright, patent, trademark, and attribution notices from the upstream work
+are retained in the NOTICE file as required by Apache 2.0 §4(c) and §4(d).
 
-Please contact suporte@evofoundation.com.br to inquire about licensing matters.
-
-Apart from the specific conditions mentioned above, all other rights and restrictions follow the Apache License 2.0. Detailed information about the Apache License 2.0 can be found at http://www.apache.org/licenses/LICENSE-2.0.
+For the full Apache License 2.0 text, see also: http://www.apache.org/licenses/LICENSE-2.0
 
 ---
 
@@ -191,7 +198,8 @@ Apart from the specific conditions mentioned above, all other rights and restric
 
    END OF TERMS AND CONDITIONS
 
-   Copyright 2026 Evolution Foundation
+   Modifications copyright 2026 Hyvelox.
+   Original work copyright 2026 Evolution Foundation.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -205,4 +213,4 @@ Apart from the specific conditions mentioned above, all other rights and restric
    See the License for the specific language governing permissions and
    limitations under the License.
 
-© 2026 Evolution Foundation
+© 2026 Hyvelox. Original work © 2026 Evolution Foundation.

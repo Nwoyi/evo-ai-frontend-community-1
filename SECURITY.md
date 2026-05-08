@@ -1,7 +1,7 @@
 # Security Policy
 
-Evolution Foundation takes the security of Evo CRM Frontend seriously. We
-appreciate your efforts to responsibly disclose any vulnerabilities you find.
+Hyvelox takes the security of Hyvelox Frontend seriously. We appreciate your
+efforts to responsibly disclose any vulnerabilities you find.
 
 ## Reporting a Vulnerability
 
@@ -12,10 +12,10 @@ Instead, report them privately through one of the following channels:
 ### Preferred channels
 
 1. **GitHub Private Vulnerability Reporting** — use the "Security" tab on this
-   repository to submit a private advisory.
+   repository to submit a private advisory. This is the preferred channel.
 
-2. **Email** — send your report to **suporte@evofoundation.com.br** with the
-   subject line `[SECURITY] Evo CRM Frontend — <brief description>`.
+2. **Email** — send your report to **support@hyvelox.com** with the subject line
+   `[SECURITY] Hyvelox Frontend — <brief description>`.
 
 ### What to include
 
@@ -23,7 +23,7 @@ To help us triage and resolve the issue quickly, please include:
 
 - A clear description of the vulnerability
 - Steps to reproduce (proof of concept, if available)
-- Affected versions
+- Affected versions or commit SHAs
 - Potential impact and severity assessment
 - Any suggested mitigation or fix
 - Your name and contact information (for credit, if desired)
@@ -41,17 +41,26 @@ To help us triage and resolve the issue quickly, please include:
 
 We follow a coordinated disclosure model:
 
-1. You report the vulnerability privately
-2. We acknowledge receipt and begin triage
-3. We work with you to understand and validate the issue
-4. We develop, test, and release a fix
-5. We publicly disclose the vulnerability and credit you (unless you prefer
-   to remain anonymous)
+1. You report the vulnerability privately.
+2. We acknowledge receipt and begin triage.
+3. We work with you to understand and validate the issue.
+4. We develop, test, and release a fix.
+5. We publicly disclose the vulnerability and credit you (unless you prefer to
+   remain anonymous).
 
 ## Supported Versions
 
 Security updates are provided for the latest released version. Older versions
 may receive critical security fixes at our discretion.
+
+## Upstream issues
+
+Hyvelox Frontend is a brand-modified fork of
+[Evo CRM Frontend](https://github.com/evolution-foundation/evo-ai-frontend-community)
+(Apache-2.0). If you discover a vulnerability that originates in upstream
+Evo CRM Frontend code and affects users beyond Hyvelox, we may coordinate
+disclosure with the upstream maintainers (Evolution Foundation) as part of the
+process.
 
 ## Recognition
 
@@ -60,9 +69,8 @@ vulnerabilities will be:
 
 - Credited in the security advisory (with permission)
 - Listed in our acknowledgments page (when available)
-- Eligible for public recognition via Evolution Foundation channels
 
 ---
 
-For general inquiries (non-security): **suporte@evofoundation.com.br**
-For more information: [evolutionfoundation.com.br](https://evolutionfoundation.com.br)
+For general inquiries (non-security): **support@hyvelox.com**
+For more information: [hyvelox.com](https://hyvelox.com)

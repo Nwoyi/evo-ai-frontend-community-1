@@ -72,8 +72,8 @@
     "collapse": "Recolher barra lateral",
     "closeSubmenu": "Fechar submenu",
     "footer": {
-      "brand": "Evo CRM",
-      "copyright": "© {{year}} Evolution Foundation. All rights reserved.",
+      "brand": "Hyvelox",
+      "copyright": "© {{year}} Hyvelox. Todos os direitos reservados.",
       "documentation": "Documentação",
       "support": "Preciso de suporte"
     }

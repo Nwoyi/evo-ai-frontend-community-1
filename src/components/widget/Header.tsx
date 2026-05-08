@@ -17,8 +17,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  title = 'EvoAI',
-  subtitle = 'Como podemos ajudar?',
+  title = 'Hyvelox AI',
+  subtitle = 'How can we help?',
   color = '#1f93ff',
   online = false,
   avatarUrl,
@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({
         />
       ) : (
         <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center font-bold">
-          E
+          H
         </div>
       )}
       <div className="leading-tight flex-1">

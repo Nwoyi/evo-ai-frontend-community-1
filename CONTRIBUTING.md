@@ -1,6 +1,6 @@
-# Contributing to Evo CRM Frontend
+# Contributing to Hyvelox Frontend
 
-Thanks for your interest in contributing to Evo CRM Frontend! This document
+Thanks for your interest in contributing to Hyvelox Frontend! This document
 outlines how to contribute effectively.
 
 ## Code of Conduct
@@ -12,7 +12,7 @@ Harassment, discrimination, or abusive behavior will not be tolerated.
 
 ### Reporting Bugs
 
-1. Check existing [issues](https://github.com/evolution-foundation/evo-ai-frontend-community/issues)
+1. Check existing [issues](https://github.com/Nwoyi/evo-ai-frontend-community-1/issues)
    to avoid duplicates
 2. Open a new issue with:
    - Clear, descriptive title
@@ -69,20 +69,35 @@ See [README.md](./README.md) for project-specific setup instructions.
 - `develop` — integration branch for upcoming releases
 - `feat/*`, `fix/*`, `chore/*` — short-lived branches off `develop`
 
-## Trademark Notice
+## Upstream sync
+
+Hyvelox Frontend is a brand-modified fork of upstream
+[Evo CRM Frontend](https://github.com/evolution-foundation/evo-ai-frontend-community)
+(Apache-2.0). When pulling upstream changes:
+
+- Do not re-introduce upstream brand assets, trademarks, or the
+  `evocrm-frontend` wordmark into the user interface — they have been
+  intentionally removed per the upstream TRADEMARKS §4.2.
+- Re-run the brand audit (search for `Evo CRM`, `EvoAI`, `Evolution Foundation`,
+  `evocrm-frontend`) after every upstream merge.
+- Preserve the [NOTICE](./NOTICE) attribution to Evolution Foundation —
+  Apache-2.0 §4(c) requires it.
+
+## License of Contributions
 
 By contributing, you agree that your contributions will be licensed under the
-Apache License 2.0 (see [LICENSE](./LICENSE)). Trademarks and brand assets are
-governed separately by [TRADEMARKS.md](./TRADEMARKS.md).
+Apache License 2.0 (see [LICENSE](./LICENSE)).
+
+Hyvelox trademarks and brand assets are governed separately by
+[TRADEMARKS.md](./TRADEMARKS.md).
 
 ## Questions?
 
-- **Community**: [evolutionfoundation.com.br/community](https://evolutionfoundation.com.br/community)
-- **Documentation**: [docs.evolutionfoundation.com.br](https://docs.evolutionfoundation.com.br)
-- **Email**: suporte@evofoundation.com.br
+- **Email**: support@hyvelox.com
+- **Website**: [hyvelox.com](https://hyvelox.com)
 
-Thanks for helping make Evo CRM Frontend better!
+Thanks for helping make Hyvelox Frontend better!
 
 ---
 
-© 2026 Evolution Foundation
+© 2026 Hyvelox

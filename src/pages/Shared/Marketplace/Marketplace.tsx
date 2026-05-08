@@ -53,7 +53,7 @@ const Marketplace = () => {
       name: t('mockProducts.aiAssistant.name'),
       description: t('mockProducts.aiAssistant.description'),
       thumbnail: '',
-      author: 'EvoAI Team',
+      author: 'Hyvelox Team',
       version: '1.2.0',
       tags: ['assistant', 'ai', 'research'],
       rating: 4.8,
