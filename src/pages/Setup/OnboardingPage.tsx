@@ -67,8 +67,8 @@ function SelectField({ label, id, value, options, onChange }: SelectFieldProps) 
             transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
           }}
           onFocus={(e) => {
-            e.target.style.borderColor = '#00ffa7';
-            e.target.style.boxShadow = '0 0 0 2px rgba(0, 255, 167, 0.35)';
+            e.target.style.borderColor = '#1F7A8C';
+            e.target.style.boxShadow = '0 0 0 2px rgba(31, 122, 140, 0.35)';
           }}
           onBlur={(e) => {
             e.target.style.borderColor = value ? '#3f3f46' : '#27272a';
@@ -216,8 +216,8 @@ export default function OnboardingPage() {
           width: 100%;
           height: 40px;
           background: #09090b;
-          border: 0.5px solid #00ffa7;
-          box-shadow: 0 0 0 2px rgba(0, 255, 167, 0.35);
+          border: 0.5px solid #1F7A8C;
+          box-shadow: 0 0 0 2px rgba(31, 122, 140, 0.35);
           border-radius: 8px;
           color: #fafafa;
           font-size: 14px;
@@ -231,8 +231,8 @@ export default function OnboardingPage() {
         .evo-submit-btn {
           width: 100%;
           height: 40px;
-          background: #00ffa7;
-          color: #000;
+          background: #1F7A8C;
+          color: #fff;
           border: none;
           border-radius: 8px;
           font-size: 14px;
@@ -305,7 +305,7 @@ export default function OnboardingPage() {
               <div
                 style={{
                   height: '3px',
-                  background: '#00ffa7',
+                  background: '#1F7A8C',
                   borderRadius: '99px',
                   width: `${progressPct}%`,
                   transition: 'width 0.3s ease',
@@ -373,8 +373,8 @@ export default function OnboardingPage() {
                       transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
                     }}
                     onFocus={(e) => {
-                      e.target.style.borderColor = '#00ffa7';
-                      e.target.style.boxShadow = '0 0 0 2px rgba(0, 255, 167, 0.35)';
+                      e.target.style.borderColor = '#1F7A8C';
+                      e.target.style.boxShadow = '0 0 0 2px rgba(31, 122, 140, 0.35)';
                     }}
                     onBlur={(e) => {
                       e.target.style.borderColor = form.mainChannel ? '#3f3f46' : '#27272a';
