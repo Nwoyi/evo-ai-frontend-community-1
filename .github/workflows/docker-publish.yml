@@ -2,7 +2,7 @@ name: Build & Publish Docker Image
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, dev]
     tags: ["v*.*.*"]
   workflow_dispatch: {}
 
@@ -100,8 +100,8 @@ jobs:
             TAGS="${IMAGE}:${VERSION},${IMAGE}:latest"
           elif [[ "${GH_REF}" == refs/heads/main ]]; then
             TAGS="${IMAGE}:latest,${IMAGE}:main-${SHA_SHORT}"
-          elif [[ "${GH_REF}" == refs/heads/develop ]]; then
-            TAGS="${IMAGE}:develop,${IMAGE}:develop-${SHA_SHORT}"
+          elif [[ "${GH_REF}" == refs/heads/dev ]]; then
+            TAGS="${IMAGE}:dev,${IMAGE}:dev-${SHA_SHORT}"
           fi
 
           echo "tags=${TAGS}" >> "$GITHUB_OUTPUT"
@@ -119,3 +119,25 @@ jobs:
 
           docker buildx imagetools create ${TAG_ARGS} \
             $(printf '${{ env.IMAGE_NAME }}@sha256:%s ' *)
+
+      # Auto-deploy dev.hyvelox.com on every push to `dev` branch.
+      # Connects via SSH to the VPS using a deploy key locked server-side
+      # to forced-command="/root/.gha-deploy/deploy-dev-frontend.sh"
+      # — the key cannot run any other command, get a shell, or forward ports.
+      # The Coolify token + app UUID live in /root/.gha-deploy/ on the VPS,
+      # so they never enter GitHub secrets.
+      - name: Trigger Coolify deploy of dev stack
+        if: github.ref == 'refs/heads/dev'
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          # script_stop = abort on first failed line; command_timeout caps the deploy trigger
+          script_stop: true
+          command_timeout: 30s
+          # The SSH key is locked to a forced command server-side, so the
+          # script we send is IGNORED — connecting at all triggers
+          # /root/.gha-deploy/deploy-dev-frontend.sh. We send `true` only
+          # because appleboy/ssh-action requires a non-empty script string.
+          script: "true"
