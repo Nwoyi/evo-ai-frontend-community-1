@@ -101,7 +101,7 @@ const MondayConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Monday tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -118,7 +118,7 @@ const MondayConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Monday:', error);
-      toast.error('Erro ao conectar com Monday');
+      toast.error('Failed to connect to Monday');
     } finally {
       setIsConnecting(false);
     }
@@ -156,11 +156,11 @@ const MondayConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Monday configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -170,11 +170,11 @@ const MondayConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Monday desconectado com sucesso!');
+      toast.success('Monday disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Monday:', error);
-      toast.error('Erro ao desconectar Monday');
+      toast.error('Failed to disconnect Monday');
     }
   };
 

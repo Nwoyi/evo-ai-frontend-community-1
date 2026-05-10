@@ -566,8 +566,8 @@ export class ChatActionCableConnector extends BaseActionCableConnector {
    */
   protected onReconnected(): void {
     super.onReconnected();
-    toast.success('Conexão em tempo real reestabelecida', {
-      description: 'Agora você receberá mensagens em tempo real novamente.',
+    toast.success('Real-time connection restored', {
+      description: 'You will receive messages in real time again.',
     });
   }
 
@@ -576,8 +576,8 @@ export class ChatActionCableConnector extends BaseActionCableConnector {
    */
   protected onDisconnected(): void {
     super.onDisconnected();
-    toast.warning('Conexão em tempo real perdida', {
-      description: 'Tentando reconectar automaticamente...',
+    toast.warning('Real-time connection lost', {
+      description: 'Attempting to reconnect automatically...',
     });
   }
 

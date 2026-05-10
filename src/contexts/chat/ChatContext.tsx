@@ -388,9 +388,9 @@ function useChatIntegration() {
 
             const cleanContent = message.content
               ? stripHtml(message.content).substring(0, 100)
-              : 'Mensagem recebida';
+              : 'Message received';
 
-            toast.info(`Nova mensagem de ${message.sender?.name || 'Contato'}`, {
+            toast.info(`New message from ${message.sender?.name || 'Contact'}`, {
               description: cleanContent,
             });
 

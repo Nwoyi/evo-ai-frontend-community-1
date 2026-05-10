@@ -102,7 +102,7 @@ const SupabaseConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Supabase tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const SupabaseConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Supabase:', error);
-      toast.error('Erro ao conectar com Supabase');
+      toast.error('Failed to connect to Supabase');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const SupabaseConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Supabase configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const SupabaseConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Supabase desconectado com sucesso!');
+      toast.success('Supabase disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Supabase:', error);
-      toast.error('Erro ao desconectar Supabase');
+      toast.error('Failed to disconnect Supabase');
     }
   };
 

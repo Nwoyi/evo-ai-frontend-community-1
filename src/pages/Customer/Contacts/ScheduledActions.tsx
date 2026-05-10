@@ -109,7 +109,7 @@ export default function ScheduledActions() {
 
     if (!hasLoaded.current) {
       if (!can('contacts', 'read')) {
-        toast.error('Você não tem permissão para visualizar ações agendadas');
+        toast.error("You don't have permission to view scheduled actions");
         return;
       }
       hasLoaded.current = true;

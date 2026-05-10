@@ -101,7 +101,7 @@ const CanvaConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Canva tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -118,7 +118,7 @@ const CanvaConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Canva:', error);
-      toast.error('Erro ao conectar com Canva');
+      toast.error('Failed to connect to Canva');
     } finally {
       setIsConnecting(false);
     }
@@ -156,11 +156,11 @@ const CanvaConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Canva configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -170,11 +170,11 @@ const CanvaConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Canva desconectado com sucesso!');
+      toast.success('Canva disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Canva:', error);
-      toast.error('Erro ao desconectar Canva');
+      toast.error('Failed to disconnect Canva');
     }
   };
 

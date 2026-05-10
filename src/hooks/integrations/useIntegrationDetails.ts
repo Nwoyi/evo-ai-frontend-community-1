@@ -146,11 +146,11 @@ export function useIntegrationDetails(
             await integrationsService.updateIntegrationConfiguration(integrationId, config);
         }
 
-        toast.success('Configuração atualizada com sucesso');
+        toast.success('Configuration updated successfully');
         await loadDetails(); // Reload to get updated data
       } catch (err) {
         console.error('Error updating configuration:', err);
-        toast.error('Erro ao atualizar configuração');
+        toast.error('Failed to update configuration');
         throw err;
       } finally {
         setSaving(false);
@@ -170,11 +170,11 @@ export function useIntegrationDetails(
         await integrationsService.toggleIntegration(integrationId, false);
       }
 
-      toast.success('Integração desconectada com sucesso');
+      toast.success('Integration disconnected successfully');
       await loadDetails();
     } catch (err) {
       console.error('Error disconnecting integration:', err);
-      toast.error('Erro ao desconectar integração');
+      toast.error('Failed to disconnect integration');
       throw err;
     }
   }, [integrationId, loadDetails]);
@@ -188,12 +188,12 @@ export function useIntegrationDetails(
         window.location.href = integration.action;
       } else {
         await integrationsService.toggleIntegration(integrationId, true);
-        toast.success('Integração reconectada com sucesso');
+        toast.success('Integration reconnected successfully');
         await loadDetails();
       }
     } catch (err) {
       console.error('Error reconnecting integration:', err);
-      toast.error('Erro ao reconectar integração');
+      toast.error('Failed to reconnect integration');
       throw err;
     }
   }, [integrationId, integration, loadDetails]);
@@ -203,10 +203,10 @@ export function useIntegrationDetails(
 
     try {
       await integrationsService.testIntegration(integrationId);
-      toast.success('Teste de conexão realizado com sucesso');
+      toast.success('Connection test completed successfully');
     } catch (err) {
       console.error('Error testing integration:', err);
-      toast.error('Erro ao testar conexão');
+      toast.error('Failed to test connection');
       throw err;
     }
   }, [integrationId]);

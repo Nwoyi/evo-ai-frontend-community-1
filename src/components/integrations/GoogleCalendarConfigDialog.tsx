@@ -192,7 +192,7 @@ const GoogleCalendarConfigDialog = ({
       setConfig((prev) => ({ ...prev, calendars }));
     } catch (error) {
       console.error('Error loading calendars:', error);
-      toast.error('Erro ao carregar agendas');
+      toast.error('Failed to load calendars');
     } finally {
       setIsLoadingCalendars(false);
     }
@@ -200,7 +200,7 @@ const GoogleCalendarConfigDialog = ({
 
   const handleConnectGoogle = async () => {
     if (!config.email) {
-      toast.error('Por favor, insira um e-mail');
+      toast.error('Please enter an email');
       return;
     }
 
@@ -217,7 +217,7 @@ const GoogleCalendarConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Google Calendar:', error);
-      toast.error('Erro ao conectar com Google Calendar');
+      toast.error('Failed to connect to Google Calendar');
     } finally {
       setIsConnecting(false);
     }
@@ -225,7 +225,7 @@ const GoogleCalendarConfigDialog = ({
 
   const handleSave = async () => {
     if (!config.settings?.selectedCalendarId) {
-      toast.error('Por favor, selecione uma agenda');
+      toast.error('Please select a calendar');
       return;
     }
 
@@ -235,11 +235,11 @@ const GoogleCalendarConfigDialog = ({
 
       // Then update local state
       onSave(config);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Google Calendar configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -253,11 +253,11 @@ const GoogleCalendarConfigDialog = ({
         onDisconnect();
       }
 
-      toast.success('Google Calendar desconectado com sucesso!');
+      toast.success('Google Calendar disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Google Calendar:', error);
-      toast.error('Erro ao desconectar Google Calendar');
+      toast.error('Failed to disconnect Google Calendar');
     }
   };
 

@@ -116,7 +116,7 @@ export const useAudioRecorder = (options?: UseAudioRecorderOptions): UseAudioRec
   // Iniciar gravação
   const startRecording = useCallback(async () => {
     if (!isSupported) {
-      toast.error('Seu navegador não suporta gravação de áudio');
+      toast.error('Your browser does not support audio recording');
       return;
     }
 
@@ -217,7 +217,7 @@ export const useAudioRecorder = (options?: UseAudioRecorderOptions): UseAudioRec
           setRecordingData(audioData);
           setHasRecording(true);
         } catch {
-          toast.error('Erro ao processar gravação de áudio');
+          toast.error('Failed to process audio recording');
 
           // Fallback: usar blob original
           const finalDuration = duration; // DECLARAR AQUI TAMBÉM
@@ -273,7 +273,7 @@ export const useAudioRecorder = (options?: UseAudioRecorderOptions): UseAudioRec
 
       mediaRecorder.onerror = event => {
         console.error('Erro na gravação:', event);
-        toast.error('Erro durante a gravação de áudio');
+        toast.error('Error during audio recording');
         stopRecording();
       };
 
@@ -318,7 +318,7 @@ export const useAudioRecorder = (options?: UseAudioRecorderOptions): UseAudioRec
       monitorAudioLevel();
     } catch (error) {
       console.error('Erro ao acessar microfone:', error);
-      toast.error('Erro ao acessar o microfone. Verifique as permissões.');
+      toast.error('Failed to access microphone. Check permissions.');
 
       // LIBERAR TRAVA EM CASO DE ERRO
       isInitializingRef.current = false;

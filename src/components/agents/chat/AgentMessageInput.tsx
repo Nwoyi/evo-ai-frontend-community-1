@@ -47,7 +47,7 @@ export function AgentMessageInput({
     const maxFileSize = 10 * 1024 * 1024; // 10MB
 
     if (selectedFiles.length + newFiles.length > 5) {
-      toast.error('Você pode anexar no máximo 5 arquivos');
+      toast.error('You can attach at most 5 files');
       return;
     }
 
@@ -55,7 +55,7 @@ export function AgentMessageInput({
 
     for (const file of newFiles) {
       if (file.size > maxFileSize) {
-        toast.error(`Arquivo ${file.name} excede o tamanho máximo de ${formatFileSize(maxFileSize)}`);
+        toast.error(`File ${file.name} exceeds the maximum size of ${formatFileSize(maxFileSize)}`);
         continue;
       }
 
@@ -83,7 +83,7 @@ export function AgentMessageInput({
         });
       } catch (error) {
         console.error('Error processing file:', error);
-        toast.error(`Erro ao processar arquivo ${file.name}`);
+        toast.error(`Error processing file ${file.name}`);
       }
     }
 

@@ -102,7 +102,7 @@ const AsanaConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Asana tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const AsanaConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Asana:', error);
-      toast.error('Erro ao conectar com Asana');
+      toast.error('Failed to connect to Asana');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const AsanaConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Asana configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const AsanaConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Asana desconectado com sucesso!');
+      toast.success('Asana disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Asana:', error);
-      toast.error('Erro ao desconectar Asana');
+      toast.error('Failed to disconnect Asana');
     }
   };
 

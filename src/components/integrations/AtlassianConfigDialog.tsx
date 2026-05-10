@@ -102,7 +102,7 @@ const AtlassianConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Atlassian tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const AtlassianConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Atlassian:', error);
-      toast.error('Erro ao conectar com Atlassian');
+      toast.error('Failed to connect to Atlassian');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const AtlassianConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Atlassian configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const AtlassianConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Atlassian desconectado com sucesso!');
+      toast.success('Atlassian disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Atlassian:', error);
-      toast.error('Erro ao desconectar Atlassian');
+      toast.error('Failed to disconnect Atlassian');
     }
   };
 

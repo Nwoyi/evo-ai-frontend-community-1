@@ -149,7 +149,7 @@ export const useConversationHandlers = () => {
   const handleDeleteConversation = useCallback(
     (conversation: Conversation) => {
       if (!can('conversations', 'delete')) {
-        toast.error('Você não tem permissão para deletar conversas');
+        toast.error("You don't have permission to delete conversations");
         return;
       }
       return conversation; // Retorna para o componente pai gerenciar o modal

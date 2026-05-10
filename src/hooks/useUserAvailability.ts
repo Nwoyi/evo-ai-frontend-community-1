@@ -15,7 +15,7 @@ export function useUserAvailability() {
         return response;
       } catch (error) {
         console.error('Erro ao atualizar disponibilidade:', error);
-        toast.error('Não foi possível atualizar o status de disponibilidade');
+        toast.error('Failed to update availability status');
         return null;
       } finally {
         setUpdating(prev => prev.filter(id => id !== userId));

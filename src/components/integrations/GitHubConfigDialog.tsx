@@ -101,7 +101,7 @@ const GitHubConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading GitHub tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -118,7 +118,7 @@ const GitHubConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to GitHub:', error);
-      toast.error('Erro ao conectar com GitHub');
+      toast.error('Failed to connect to GitHub');
     } finally {
       setIsConnecting(false);
     }
@@ -156,11 +156,11 @@ const GitHubConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving GitHub configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -170,11 +170,11 @@ const GitHubConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('GitHub desconectado com sucesso!');
+      toast.success('GitHub disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting GitHub:', error);
-      toast.error('Erro ao desconectar GitHub');
+      toast.error('Failed to disconnect GitHub');
     }
   };
 

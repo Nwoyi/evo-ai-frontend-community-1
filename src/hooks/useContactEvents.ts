@@ -94,7 +94,7 @@ export function useContactEvents() {
         return response;
       } catch (error) {
         console.error('❌ ContactEvents: Error loading events:', error);
-        toast.error('Erro ao carregar eventos do contato');
+        toast.error('Failed to load contact events');
         setState(prev => ({ ...prev, loading: { ...prev.loading, events: false } }));
         return null;
       }
@@ -126,7 +126,7 @@ export function useContactEvents() {
       return response;
     } catch (error) {
       console.error('❌ ContactEvents: Error loading stats:', error);
-      toast.error('Erro ao carregar estatísticas de eventos');
+      toast.error('Failed to load event statistics');
       setState(prev => ({ ...prev, loading: { ...prev.loading, stats: false } }));
       return null;
     }
@@ -163,7 +163,7 @@ export function useContactEvents() {
         return response;
       } catch (error) {
         console.error('❌ ContactEvents: Error loading recent events:', error);
-        toast.error('Erro ao carregar eventos recentes');
+        toast.error('Failed to load recent events');
         setState(prev => ({ ...prev, loading: { ...prev.loading, recent: false } }));
         return null;
       }

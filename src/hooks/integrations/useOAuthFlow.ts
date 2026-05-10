@@ -115,7 +115,7 @@ export function useOAuthFlow(options: UseOAuthFlowOptions): UseOAuthFlowReturn {
             redirectUri || `${window.location.origin}/integrations/${integrationId}/callback`,
         });
 
-        toast.success(`${integrationId} conectado com sucesso!`);
+        toast.success(`${integrationId} connected successfully!`);
         onSuccess?.(tokenData);
       } catch (err: any) {
         const errorMsg = err.message || 'Erro ao conectar integração';

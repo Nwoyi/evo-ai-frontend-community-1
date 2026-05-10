@@ -108,10 +108,10 @@ export const useMessageHistory = ({ conversationId, enabled = true }: UseMessage
         isInitialLoading: false,
       }));
 
-      toast.error('Erro ao carregar mensagens', {
+      toast.error('Failed to load messages', {
         description: errorMessage,
         action: {
-          label: 'Tentar novamente',
+          label: 'Try again',
           onClick: () => loadInitialMessages(),
         },
       });
@@ -182,8 +182,8 @@ export const useMessageHistory = ({ conversationId, enabled = true }: UseMessage
       console.error('Error loading more messages:', error);
       setState(prev => ({ ...prev, isLoadingMore: false }));
 
-      toast.error('Erro ao carregar mensagens anteriores', {
-        description: error instanceof Error ? error.message : 'Tente novamente',
+      toast.error('Failed to load earlier messages', {
+        description: error instanceof Error ? error.message : 'Try again',
       });
     } finally {
       loadingRef.current = false;

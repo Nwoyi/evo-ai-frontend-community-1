@@ -102,7 +102,7 @@ const StripeConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Stripe tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const StripeConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Stripe:', error);
-      toast.error('Erro ao conectar com Stripe');
+      toast.error('Failed to connect to Stripe');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const StripeConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Stripe configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const StripeConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Stripe desconectado com sucesso!');
+      toast.success('Stripe disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Stripe:', error);
-      toast.error('Erro ao desconectar Stripe');
+      toast.error('Failed to disconnect Stripe');
     }
   };
 

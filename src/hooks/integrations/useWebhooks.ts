@@ -46,11 +46,11 @@ export function useWebhooks(options: UseWebhooksOptions = {}): UseWebhooksReturn
     async (data: WebhookFormData) => {
       try {
         await webhooksService.createWebhook(data);
-        toast.success('Webhook criado com sucesso');
+        toast.success('Webhook created successfully');
         await loadWebhooks(); // Reload list
       } catch (err) {
         console.error('Error creating webhook:', err);
-        toast.error('Erro ao criar webhook');
+        toast.error('Failed to create webhook');
         throw err;
       }
     },
@@ -61,11 +61,11 @@ export function useWebhooks(options: UseWebhooksOptions = {}): UseWebhooksReturn
     async (id: string, data: WebhookFormData) => {
       try {
         await webhooksService.updateWebhook(id, data);
-        toast.success('Webhook atualizado com sucesso');
+        toast.success('Webhook updated successfully');
         await loadWebhooks(); // Reload list
       } catch (err) {
         console.error('Error updating webhook:', err);
-        toast.error('Erro ao atualizar webhook');
+        toast.error('Failed to update webhook');
         throw err;
       }
     },
@@ -76,11 +76,11 @@ export function useWebhooks(options: UseWebhooksOptions = {}): UseWebhooksReturn
     async (id: string) => {
       try {
         await webhooksService.deleteWebhook(id);
-        toast.success('Webhook excluído com sucesso');
+        toast.success('Webhook deleted successfully');
         await loadWebhooks(); // Reload list
       } catch (err) {
         console.error('Error deleting webhook:', err);
-        toast.error('Erro ao excluir webhook');
+        toast.error('Failed to delete webhook');
         throw err;
       }
     },
@@ -90,10 +90,10 @@ export function useWebhooks(options: UseWebhooksOptions = {}): UseWebhooksReturn
   const testWebhook = useCallback(async (id: string) => {
     try {
       await webhooksService.testWebhook(id);
-      toast.success('Teste de webhook enviado com sucesso');
+      toast.success('Webhook test sent successfully');
     } catch (err) {
       console.error('Error testing webhook:', err);
-      toast.error('Erro ao testar webhook');
+      toast.error('Failed to test webhook');
       throw err;
     }
   }, []);

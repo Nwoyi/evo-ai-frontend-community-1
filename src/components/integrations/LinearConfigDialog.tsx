@@ -102,7 +102,7 @@ const LinearConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Linear tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const LinearConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Linear:', error);
-      toast.error('Erro ao conectar com Linear');
+      toast.error('Failed to connect to Linear');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const LinearConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Linear configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const LinearConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Linear desconectado com sucesso!');
+      toast.success('Linear disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Linear:', error);
-      toast.error('Erro ao desconectar Linear');
+      toast.error('Failed to disconnect Linear');
     }
   };
 

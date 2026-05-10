@@ -97,7 +97,7 @@ const GoogleSheetsConfigDialog = ({
       setConfig((prev: GoogleSheetsConfig) => ({ ...prev, spreadsheets }));
     } catch (error) {
       console.error('Error loading spreadsheets:', error);
-      toast.error('Erro ao carregar planilhas');
+      toast.error('Failed to load spreadsheets');
     } finally {
       setIsLoadingSpreadsheets(false);
     }
@@ -105,7 +105,7 @@ const GoogleSheetsConfigDialog = ({
 
   const handleConnectGoogle = async () => {
     if (!config.email) {
-      toast.error('Por favor, insira um e-mail');
+      toast.error('Please enter an email');
       return;
     }
 
@@ -119,7 +119,7 @@ const GoogleSheetsConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Google Sheets:', error);
-      toast.error('Erro ao conectar com Google Sheets');
+      toast.error('Failed to connect to Google Sheets');
     } finally {
       setIsConnecting(false);
     }
@@ -127,7 +127,7 @@ const GoogleSheetsConfigDialog = ({
 
   const handleSave = async () => {
     if (!config.settings?.selectedSpreadsheetId) {
-      toast.error('Por favor, selecione uma planilha');
+      toast.error('Please select a spreadsheet');
       return;
     }
 
@@ -137,11 +137,11 @@ const GoogleSheetsConfigDialog = ({
 
       // Then update local state
       onSave(config);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Google Sheets configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -155,11 +155,11 @@ const GoogleSheetsConfigDialog = ({
         onDisconnect();
       }
 
-      toast.success('Google Sheets desconectado com sucesso!');
+      toast.success('Google Sheets disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Google Sheets:', error);
-      toast.error('Erro ao desconectar Google Sheets');
+      toast.error('Failed to disconnect Google Sheets');
     }
   };
 

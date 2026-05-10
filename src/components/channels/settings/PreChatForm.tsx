@@ -112,10 +112,10 @@ export default function PreChatForm({
         await onUpdate(updateData);
       }
 
-      toast.success('Configurações do formulário pré-chat atualizadas com sucesso!');
+      toast.success('Pre-chat form settings updated successfully!');
     } catch (error) {
       console.error('Error updating pre-chat form:', error);
-      toast.error('Erro ao atualizar configurações do formulário pré-chat');
+      toast.error('Failed to update pre-chat form settings');
     } finally {
       setIsUpdating(false);
     }

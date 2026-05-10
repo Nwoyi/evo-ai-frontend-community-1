@@ -102,7 +102,7 @@ const HubSpotConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading HubSpot tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const HubSpotConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to HubSpot:', error);
-      toast.error('Erro ao conectar com HubSpot');
+      toast.error('Failed to connect to HubSpot');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const HubSpotConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving HubSpot configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const HubSpotConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('HubSpot desconectado com sucesso!');
+      toast.success('HubSpot disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting HubSpot:', error);
-      toast.error('Erro ao desconectar HubSpot');
+      toast.error('Failed to disconnect HubSpot');
     }
   };
 

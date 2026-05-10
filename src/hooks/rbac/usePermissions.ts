@@ -92,7 +92,7 @@ export const usePermissions = (): UsePermissionsReturn => {
       setStats({ total, system, custom, with_permissions });
     } catch (error) {
       console.error('Error loading role permissions:', error);
-      toast.error('Erro ao carregar permissões de função');
+      toast.error('Failed to load role permissions');
     } finally {
       updateLoading('list', false);
     }
@@ -113,11 +113,11 @@ export const usePermissions = (): UsePermissionsReturn => {
       // Delete all permissions for this role
       await deleteRolePermission(permission.role_id);
       
-      toast.success(`Permissões da função "${permission.role.name}" removidas com sucesso`);
+      toast.success(`Permissions for role "${permission.role.name}" removed successfully`);
       
     } catch (error) {
       console.error('Error deleting role permissions:', error);
-      toast.error('Erro ao remover permissões da função');
+      toast.error('Failed to remove role permissions');
       throw error;
     } finally {
       updateLoading('delete', false);
@@ -135,14 +135,14 @@ export const usePermissions = (): UsePermissionsReturn => {
         )
       );
       
-      toast.success(`${permissionsToDelete.length} permissões de função excluídas com sucesso`);
+      toast.success(`${permissionsToDelete.length} role permissions deleted successfully`);
       
       // Clear selection after successful deletion
       clearSelection();
       
     } catch (error) {
       console.error('Error bulk deleting role permissions:', error);
-      toast.error('Erro ao excluir permissões de função');
+      toast.error('Failed to delete role permissions');
       throw error;
     } finally {
       updateLoading('bulk', false);

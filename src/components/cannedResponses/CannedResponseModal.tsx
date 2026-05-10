@@ -154,12 +154,12 @@ export default function CannedResponseModal({
 
     files.forEach(file => {
       if (file.size > maxSize) {
-        toast.error(`Arquivo ${file.name} é muito grande (máximo 10MB)`);
+        toast.error(`File ${file.name} is too large (maximum 10MB)`);
         return;
       }
 
       if (!allowedTypes.includes(file.type)) {
-        toast.error(`Tipo de arquivo ${file.name} não permitido`);
+        toast.error(`File type ${file.name} not allowed`);
         return;
       }
 

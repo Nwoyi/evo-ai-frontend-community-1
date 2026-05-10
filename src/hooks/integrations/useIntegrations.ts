@@ -53,7 +53,7 @@ export function useIntegrations(options: UseIntegrationsOptions = {}): UseIntegr
           } else {
             await integrationsService.toggleIntegration(integration.id, false);
           }
-          toast.success(`${integration.name} desconectado com sucesso`);
+          toast.success(`${integration.name} disconnected successfully`);
         } else {
           // Check if it's an OAuth integration that needs redirect
           if (integration.action && integration.action.startsWith('http')) {
@@ -62,7 +62,7 @@ export function useIntegrations(options: UseIntegrationsOptions = {}): UseIntegr
             return;
           } else {
             await integrationsService.toggleIntegration(integration.id, true);
-            toast.success(`${integration.name} conectado com sucesso`);
+            toast.success(`${integration.name} connected successfully`);
           }
         }
 
@@ -70,7 +70,7 @@ export function useIntegrations(options: UseIntegrationsOptions = {}): UseIntegr
         await loadIntegrations();
       } catch (err) {
         console.error('Error toggling integration:', err);
-        toast.error('Erro ao alterar status da integração');
+        toast.error('Failed to change integration status');
         throw err;
       }
     },
@@ -134,7 +134,7 @@ export function useIntegrations(options: UseIntegrationsOptions = {}): UseIntegr
       );
     } catch (err) {
       console.error('Error refreshing integration:', err);
-      toast.error('Erro ao atualizar integração');
+      toast.error('Failed to refresh integration');
       throw err;
     }
   }, []);

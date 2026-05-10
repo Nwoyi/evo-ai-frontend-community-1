@@ -100,7 +100,7 @@ export default function PipelineItemCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center space-x-2 mb-1">
             <h4 className="text-sm font-semibold text-foreground truncate">
-              {item.contact?.name || t('kanban.item.unknownUser', 'Usuário Desconhecido')}
+              {item.contact?.name || t('kanban.item.unknownUser', 'Unknown User')}
             </h4>
             {item.conversation?.display_id && (
               <span className="text-xs text-muted-foreground font-medium">
@@ -193,9 +193,9 @@ export default function PipelineItemCard({
                 {item.conversation.last_non_activity_message?.message_type !== undefined && (
                   <span className="text-xs text-muted-foreground">
                     {item.conversation.last_non_activity_message.message_type === 0
-                      ? t('kanban.conversation.incoming', 'Entrada')
+                      ? t('kanban.conversation.incoming', 'Incoming')
                       : item.conversation.last_non_activity_message.message_type === 1
-                        ? t('kanban.conversation.outgoing', 'Saída')
+                        ? t('kanban.conversation.outgoing', 'Outgoing')
                         : ''}
                   </span>
                 )}

@@ -102,7 +102,7 @@ const NotionConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading Notion tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const NotionConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to Notion:', error);
-      toast.error('Erro ao conectar com Notion');
+      toast.error('Failed to connect to Notion');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const NotionConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving Notion configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const NotionConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('Notion desconectado com sucesso!');
+      toast.success('Notion disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting Notion:', error);
-      toast.error('Erro ao desconectar Notion');
+      toast.error('Failed to disconnect Notion');
     }
   };
 

@@ -496,7 +496,7 @@ const EvolutionWhatsAppConfig: React.FC<{
   const { t } = useLanguage('channels');
   const [instanceSettings, setInstanceSettings] = useState({
     rejectCall: true,
-    msgCall: 'Não aceito chamadas',
+    msgCall: "I don't accept calls",
     groupsIgnore: false,
     alwaysOnline: true,
     readMessages: false,
@@ -590,7 +590,7 @@ const EvolutionWhatsAppConfig: React.FC<{
             const ignoreStatus = settings.ignoreStatus ?? settings.ignore_status ?? true;
             setInstanceSettings({
               rejectCall: settings.rejectCall ?? settings.reject_call ?? true,
-              msgCall: settings.msgCall || settings.msg_call || 'Não aceito chamadas',
+              msgCall: settings.msgCall || settings.msg_call || "I don't accept calls",
               groupsIgnore: settings.ignoreGroups ?? settings.ignore_groups ?? false, // Evolution Go uses ignoreGroups
               alwaysOnline: settings.alwaysOnline ?? settings.always_online ?? true,
               readMessages: settings.readMessages ?? settings.read_messages ?? true,
@@ -601,7 +601,7 @@ const EvolutionWhatsAppConfig: React.FC<{
             // Evolution (normal) settings mapping
             setInstanceSettings({
               rejectCall: settings.rejectCall ?? true,
-              msgCall: settings.msgCall || 'Não aceito chamadas',
+              msgCall: settings.msgCall || "I don't accept calls",
               groupsIgnore: settings.groupsIgnore ?? false,
               alwaysOnline: settings.alwaysOnline ?? true,
               readMessages: settings.readMessages ?? false,
@@ -1356,37 +1356,37 @@ const PrivacySettings: React.FC<{
         case 'lastSeen':
           await ZapiService.setLastSeen(instanceId, value);
           setPrivacySettings(prev => ({ ...prev, lastSeen: value }));
-          toast.success('Configuração de "Visto por último" atualizada');
+          toast.success('"Last seen" setting updated');
           break;
         case 'photoVisualization':
           await ZapiService.setPhotoVisualization(instanceId, value);
           setPrivacySettings(prev => ({ ...prev, photoVisualization: value }));
-          toast.success('Configuração de visualização de foto atualizada');
+          toast.success('Photo visibility setting updated');
           break;
         case 'description':
           await ZapiService.setDescription(instanceId, value);
           setPrivacySettings(prev => ({ ...prev, description: value }));
-          toast.success('Configuração de descrição atualizada');
+          toast.success('Description setting updated');
           break;
         case 'groupAdd':
           await ZapiService.setGroupAddPermission(instanceId, value);
           setPrivacySettings(prev => ({ ...prev, groupAdd: value }));
-          toast.success('Configuração de permissão de grupo atualizada');
+          toast.success('Group permission setting updated');
           break;
         case 'online':
           await ZapiService.setOnline(instanceId, value);
           setPrivacySettings(prev => ({ ...prev, online: value }));
-          toast.success('Configuração de online atualizada');
+          toast.success('Online setting updated');
           break;
         case 'readReceipts':
           await ZapiService.setReadReceipts(instanceId, value);
           setPrivacySettings(prev => ({ ...prev, readReceipts: value }));
-          toast.success('Configuração de confirmações de leitura atualizada');
+          toast.success('Read receipts setting updated');
           break;
       }
     } catch (error: any) {
       console.error(`Erro ao atualizar ${setting}:`, error);
-      toast.error(error?.response?.data?.error || `Erro ao atualizar ${setting}`);
+      toast.error(error?.response?.data?.error || `Failed to update ${setting}`);
     } finally {
       setIsLoading(false);
     }
@@ -1394,16 +1394,16 @@ const PrivacySettings: React.FC<{
 
   const handleMessagesDurationUpdate = async () => {
     if (privacySettings.messagesDuration < 0) {
-      toast.error('Duração deve ser maior ou igual a 0');
+      toast.error('Duration must be greater than or equal to 0');
       return;
     }
     setIsLoading(true);
     try {
       await ZapiService.setMessagesDuration(instanceId, privacySettings.messagesDuration);
-      toast.success('Duração das mensagens atualizada');
+      toast.success('Message duration updated');
     } catch (error: any) {
       console.error('Erro ao atualizar duração das mensagens:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao atualizar duração das mensagens');
+      toast.error(error?.response?.data?.error || 'Failed to update message duration');
     } finally {
       setIsLoading(false);
     }
@@ -1586,7 +1586,7 @@ const ZapiWhatsAppConfig: React.FC<{
     profileName: '',
     profileDescription: '',
     callReject: false,
-    callRejectMessage: 'Não aceito chamadas',
+    callRejectMessage: "I don't accept calls",
   });
 
   const instanceId = inbox.provider_config?.instance_id;
@@ -1719,7 +1719,7 @@ const ZapiWhatsAppConfig: React.FC<{
           setQrCode(null);
           setInstanceStatus('connected');
           lastStatusRef.current = 'connected';
-          toast.success('Instância conectada com sucesso!');
+          toast.success('Instance connected successfully!');
           // Reload instance data
           const data = await ZapiService.getInstanceData(instanceId);
           // Update profile settings from device data (primary) or instance data (fallback)
@@ -1809,7 +1809,7 @@ const ZapiWhatsAppConfig: React.FC<{
             if (currentStatus === 'connected' && previousStatus === 'disconnected') {
               setShowQrModal(false);
               setQrCode(null);
-              toast.success('Instância conectada com sucesso!');
+              toast.success('Instance connected successfully!');
             }
           }
 
@@ -1889,11 +1889,11 @@ const ZapiWhatsAppConfig: React.FC<{
         setQrCode(qrData);
         setShowQrModal(true);
       } else {
-        toast.error('QR Code não encontrado');
+        toast.error('QR Code not found');
       }
     } catch (error: any) {
       console.error('Erro ao obter QR code:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao obter QR code');
+      toast.error(error?.response?.data?.error || 'Failed to fetch QR code');
     } finally {
       setIsLoading(false);
     }
@@ -1918,13 +1918,13 @@ const ZapiWhatsAppConfig: React.FC<{
         if (!showQrModal) {
           setShowQrModal(true);
         }
-        toast.success('QR Code atualizado com sucesso!');
+        toast.success('QR Code refreshed successfully!');
       } else {
-        toast.error('QR Code não encontrado');
+        toast.error('QR Code not found');
       }
     } catch (error: any) {
       console.error('Erro ao atualizar QR code:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao atualizar QR code');
+      toast.error(error?.response?.data?.error || 'Failed to refresh QR code');
     } finally {
       setIsLoading(false);
     }
@@ -1945,10 +1945,10 @@ const ZapiWhatsAppConfig: React.FC<{
       // Sync inbox name with Z-API instance name
       await syncInboxWithZapi(profileSettings.profileName);
 
-      toast.success('Nome do perfil atualizado com sucesso!');
+      toast.success('Profile name updated successfully!');
     } catch (error: any) {
       console.error('Erro ao atualizar nome do perfil:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao atualizar nome do perfil');
+      toast.error(error?.response?.data?.error || 'Failed to update profile name');
     } finally {
       setIsLoading(false);
     }
@@ -1960,10 +1960,10 @@ const ZapiWhatsAppConfig: React.FC<{
     try {
       setIsLoading(true);
       await ZapiService.updateProfileDescription(instanceId, profileSettings.profileDescription);
-      toast.success('Descrição do perfil atualizada com sucesso!');
+      toast.success('Profile description updated successfully!');
     } catch (error: any) {
       console.error('Erro ao atualizar descrição do perfil:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao atualizar descrição do perfil');
+      toast.error(error?.response?.data?.error || 'Failed to update profile description');
     } finally {
       setIsLoading(false);
     }
@@ -1975,10 +1975,10 @@ const ZapiWhatsAppConfig: React.FC<{
     try {
       setIsLoading(true);
       await ZapiService.updateCallReject(instanceId, profileSettings.callReject);
-      toast.success('Configuração de rejeição de chamadas atualizada!');
+      toast.success('Call rejection setting updated!');
     } catch (error: any) {
       console.error('Erro ao atualizar configuração de rejeição de chamadas:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao atualizar configuração');
+      toast.error(error?.response?.data?.error || 'Failed to update setting');
     } finally {
       setIsLoading(false);
     }
@@ -1990,10 +1990,10 @@ const ZapiWhatsAppConfig: React.FC<{
     try {
       setIsLoading(true);
       await ZapiService.updateCallRejectMessage(instanceId, profileSettings.callRejectMessage);
-      toast.success('Mensagem de rejeição atualizada!');
+      toast.success('Rejection message updated!');
     } catch (error: any) {
       console.error('Erro ao atualizar mensagem de rejeição de chamadas:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao atualizar mensagem');
+      toast.error(error?.response?.data?.error || 'Failed to update message');
     } finally {
       setIsLoading(false);
     }
@@ -2007,10 +2007,10 @@ const ZapiWhatsAppConfig: React.FC<{
     try {
       setIsLoading(true);
       await ZapiService.restartInstance(instanceId);
-      toast.success('Instância reiniciada com sucesso!');
+      toast.success('Instance restarted successfully!');
     } catch (error: any) {
       console.error('Erro ao reiniciar instância:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao reiniciar instância');
+      toast.error(error?.response?.data?.error || 'Failed to restart instance');
     } finally {
       setIsLoading(false);
     }
@@ -2024,11 +2024,11 @@ const ZapiWhatsAppConfig: React.FC<{
     try {
       setIsLoading(true);
       await ZapiService.disconnectInstance(instanceId);
-      toast.success('Instância desconectada com sucesso!');
+      toast.success('Instance disconnected successfully!');
       setInstanceStatus('disconnected');
     } catch (error: any) {
       console.error('Erro ao desconectar instância:', error);
-      toast.error(error?.response?.data?.error || 'Erro ao desconectar instância');
+      toast.error(error?.response?.data?.error || 'Failed to disconnect instance');
     } finally {
       setIsLoading(false);
     }
@@ -2248,7 +2248,7 @@ const ZapiWhatsAppConfig: React.FC<{
                   className="w-64 h-64 border border-slate-200 dark:border-slate-700 rounded-lg bg-white p-2"
                   onError={e => {
                     console.error('Erro ao carregar QR code:', e);
-                    toast.error('Erro ao exibir QR code');
+                    toast.error('Failed to display QR code');
                   }}
                 />
                 <p className="text-sm text-center text-slate-600 dark:text-slate-400">

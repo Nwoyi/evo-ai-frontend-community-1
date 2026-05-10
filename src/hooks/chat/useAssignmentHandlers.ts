@@ -51,7 +51,7 @@ export const useAssignmentHandlers = () => {
   const handleAssignAgent = useCallback(
     async (conversation: Conversation) => {
       if (!can('conversations', 'update')) {
-        toast.error('Você não tem permissão para atribuir conversas');
+        toast.error("You don't have permission to assign conversations");
         return;
       }
 
@@ -64,7 +64,7 @@ export const useAssignmentHandlers = () => {
   const handleAssignTeam = useCallback(
     async (conversation: Conversation) => {
       if (!can('conversations', 'update')) {
-        toast.error('Você não tem permissão para atribuir conversas');
+        toast.error("You don't have permission to assign conversations");
         return;
       }
 
@@ -77,7 +77,7 @@ export const useAssignmentHandlers = () => {
   const handleAssignTag = useCallback(
     async (conversation: Conversation) => {
       if (!can('conversations', 'update')) {
-        toast.error('Você não tem permissão para adicionar etiquetas');
+        toast.error("You don't have permission to add labels");
         return;
       }
 

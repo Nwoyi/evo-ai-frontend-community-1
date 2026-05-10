@@ -102,7 +102,7 @@ const PayPalConfigDialog = ({
       setAvailableTools(response.tools || []);
     } catch (error) {
       console.error('Error loading PayPal tools:', error);
-      toast.error('Erro ao carregar ferramentas disponíveis');
+      toast.error('Failed to load available tools');
     } finally {
       setIsLoadingTools(false);
     }
@@ -119,7 +119,7 @@ const PayPalConfigDialog = ({
       }
     } catch (error) {
       console.error('Error connecting to PayPal:', error);
-      toast.error('Erro ao conectar com PayPal');
+      toast.error('Failed to connect to PayPal');
     } finally {
       setIsConnecting(false);
     }
@@ -157,11 +157,11 @@ const PayPalConfigDialog = ({
 
       // Then update local state
       onSave(updatedConfig);
-      toast.success('Configurações salvas com sucesso!');
+      toast.success('Settings saved successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error saving PayPal configuration:', error);
-      toast.error('Erro ao salvar configurações');
+      toast.error('Failed to save settings');
     }
   };
 
@@ -171,11 +171,11 @@ const PayPalConfigDialog = ({
       if (onDisconnect) {
         onDisconnect();
       }
-      toast.success('PayPal desconectado com sucesso!');
+      toast.success('PayPal disconnected successfully!');
       onOpenChange(false);
     } catch (error) {
       console.error('Error disconnecting PayPal:', error);
-      toast.error('Erro ao desconectar PayPal');
+      toast.error('Failed to disconnect PayPal');
     }
   };
 
