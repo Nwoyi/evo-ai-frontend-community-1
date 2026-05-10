@@ -711,29 +711,49 @@ export default function ChannelConfig() {
               legacy scope-list flow. The form is still reachable so existing
               installs with credentials can edit them; new self-serve OAuth is
               what's gated. CLAUDE.md "v1 channel scope". */}
-          <TabsTrigger value="facebook" className="gap-2">
+          {/* Compact amber-dot indicator (instead of a wide "Coming soon" pill)
+              keeps all 5 tabs on a single row across locales — verbose i18n
+              text was forcing Evolution Go onto a second line. The native
+              `title` tooltip preserves the affordance, and `aria-label` keeps
+              screen readers informed. */}
+          <TabsTrigger
+            value="facebook"
+            className="gap-1.5"
+            title={t('channels.comingSoon')}
+          >
             {t('channels.facebook.tabTitle')}
-            <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-medium leading-none">
-              {t('channels.comingSoon')}
-            </span>
+            <span
+              className="inline-block h-2 w-2 rounded-full bg-amber-500"
+              aria-label={t('channels.comingSoon')}
+            />
           </TabsTrigger>
           <TabsTrigger value="whatsapp">{t('channels.whatsapp.tabTitle')}</TabsTrigger>
-          <TabsTrigger value="instagram" className="gap-2">
+          <TabsTrigger
+            value="instagram"
+            className="gap-1.5"
+            title={t('channels.comingSoon')}
+          >
             {t('channels.instagram.tabTitle')}
-            <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-medium leading-none">
-              {t('channels.comingSoon')}
-            </span>
+            <span
+              className="inline-block h-2 w-2 rounded-full bg-amber-500"
+              aria-label={t('channels.comingSoon')}
+            />
           </TabsTrigger>
           <TabsTrigger value="evolution">{t('channels.evolution.tabTitle')}</TabsTrigger>
-          {/* Evolution Go: visible "Coming soon" badge for v1. Schema/handler/
+          {/* Evolution Go: visible amber-dot indicator for v1. Schema/handler/
               TabsContent kept fully functional so stacks with existing
-              EVOLUTION_GO_* rows still render and can be edited. The badge is
+              EVOLUTION_GO_* rows still render and can be edited. The dot is
               the only roadmap signal — clicking the tab still works. */}
-          <TabsTrigger value="evolution_go" className="gap-2">
+          <TabsTrigger
+            value="evolution_go"
+            className="gap-1.5"
+            title={t('channels.comingSoon')}
+          >
             {t('channels.evolutionGo.tabTitle')}
-            <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-medium leading-none">
-              {t('channels.comingSoon')}
-            </span>
+            <span
+              className="inline-block h-2 w-2 rounded-full bg-amber-500"
+              aria-label={t('channels.comingSoon')}
+            />
           </TabsTrigger>
           {/* Twitter tab intentionally hidden — channel deprecated in customer-facing flow.
               Form, schema and submit handler are kept below so any installation that already
