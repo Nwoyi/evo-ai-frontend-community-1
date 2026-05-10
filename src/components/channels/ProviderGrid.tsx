@@ -17,6 +17,14 @@ export interface Provider {
   description: string;
   recommended?: boolean;
   popular?: boolean;
+  /**
+   * v1-paused providers (Evolution Go, Notificame, Z-API) — render visibly
+   * with a "Coming soon" badge instead of being hidden. Forces disabled state
+   * regardless of any external `isDisabled` predicate. Mirror of the field on
+   * `@/types/channels/providers#Provider` (kept duplicated to avoid a wider
+   * import-graph refactor).
+   */
+  comingSoon?: boolean;
 }
 
 interface ProviderGridProps {
@@ -47,8 +55,15 @@ const ProviderGrid: React.FC<ProviderGridProps> = ({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {providers.map(provider => {
-        const disabled = isDisabled ? isDisabled(provider.id) : false;
-        const tooltipText = disabled && disabledTooltip ? disabledTooltip(provider.id) : undefined;
+        // `comingSoon` always wins: if the v1 scope says "paused", we render
+        // visibly but force-disable, regardless of whether the consumer's
+        // `isDisabled` predicate would have returned false.
+        const disabled = provider.comingSoon || (isDisabled ? isDisabled(provider.id) : false);
+        const tooltipText = provider.comingSoon
+          ? t('newChannel.providers.badges.comingSoonTooltip')
+          : disabled && disabledTooltip
+            ? disabledTooltip(provider.id)
+            : undefined;
 
         const card = (
           <Card
@@ -60,7 +75,11 @@ const ProviderGrid: React.FC<ProviderGridProps> = ({
             }`}
             onClick={() => !disabled && onSelect(provider)}
           >
-            {provider.recommended && (
+            {provider.comingSoon ? (
+              <div className="absolute -top-2 right-4 bg-amber-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                {t('newChannel.providers.badges.comingSoon')}
+              </div>
+            ) : provider.recommended && (
               <div className="absolute -top-2 right-4 bg-green-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                 {t('newChannel.providers.badges.recommended')}
               </div>

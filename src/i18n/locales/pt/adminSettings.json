@@ -172,8 +172,10 @@
     "save": "Guardar Configuracao",
     "saving": "A guardar...",
     "dismissError": "Fechar erro",
+    "comingSoon": "Em breve",
     "facebook": {
       "tabTitle": "Facebook",
+      "comingSoonNotice": "O Facebook Messenger chega em breve. Estamos a finalizar o fluxo OAuth para o novo produto Meta \"Login for Business\" — as suas credenciais guardadas são preservadas e serão ativadas automaticamente no lançamento.",
       "fields": {
         "appId": "ID da App",
         "verifyToken": "Token de Verificacao",
@@ -212,6 +214,7 @@
     },
     "instagram": {
       "tabTitle": "Instagram",
+      "comingSoonNotice": "O Instagram chega em breve. Estamos a integrar o novo fluxo Meta \"Login for Business\" — as suas credenciais guardadas são preservadas e serão ativadas automaticamente no lançamento.",
       "fields": {
         "appId": "ID da App",
         "appSecret": "Segredo da App",
@@ -243,6 +246,7 @@
     },
     "evolutionGo": {
       "tabTitle": "Evolution Go",
+      "comingSoonNotice": "O Evolution Go chega em breve. Na v1 priorizamos o Evolution (provedor recomendado) — as credenciais existentes do Evolution Go continuam editáveis aqui.",
       "fields": {
         "apiUrl": "URL da API",
         "adminSecret": "Token Admin"

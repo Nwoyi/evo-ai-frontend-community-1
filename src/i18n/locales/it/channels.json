@@ -160,7 +160,9 @@
     "providers": {
       "badges": {
         "recommended": "Consigliato",
-        "popular": "Popolare"
+        "popular": "Popolare",
+        "comingSoon": "Prossimamente",
+        "comingSoonTooltip": "Questo canale sarà presto disponibile — lo attiveremo in una prossima versione."
       },
       "whatsappCloud": {
         "name": "WhatsApp Business API (Cloud)",

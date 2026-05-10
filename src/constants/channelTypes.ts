@@ -32,26 +32,29 @@ export const getChannelTypes = (): ChannelType[] => [
         name: i18n.t('channels:newChannel.providers.twilio.name'),
         description: i18n.t('channels:newChannel.providers.twilio.description'),
       },
-      // ---- Hidden for v1 (CLAUDE.md "v1 channel scope") --------------------
-      // Evolution Go, Notificame, Z-API are paused for v1. Same comment-out
-      // pattern as `other_provider` below (line ~109). Re-enable for v2 by
-      // uncommenting + verifying the corresponding form components still build.
-      // {
-      //   id: 'evolution_go',
-      //   name: i18n.t('channels:newChannel.providers.evolutionGo.name'),
-      //   description: i18n.t('channels:newChannel.providers.evolutionGo.description'),
-      //   popular: true,
-      // },
-      // {
-      //   id: 'notificame',
-      //   name: i18n.t('channels:newChannel.providers.notificame.name'),
-      //   description: i18n.t('channels:newChannel.providers.notificame.description'),
-      // },
-      // {
-      //   id: 'zapi',
-      //   name: i18n.t('channels:newChannel.providers.zapi.name'),
-      //   description: i18n.t('channels:newChannel.providers.zapi.description'),
-      // },
+      // ---- v1 "Coming soon" — visible but disabled (CLAUDE.md "v1 channel scope") --
+      // Evolution Go, Notificame, Z-API are paused for v1 but kept visible so
+      // users can see what's planned. The `comingSoon: true` flag forces the
+      // ProviderGrid card into a disabled state with an amber badge. Re-enable
+      // for v2 by removing `comingSoon: true` (forms still build today).
+      {
+        id: 'evolution_go',
+        name: i18n.t('channels:newChannel.providers.evolutionGo.name'),
+        description: i18n.t('channels:newChannel.providers.evolutionGo.description'),
+        comingSoon: true,
+      },
+      {
+        id: 'notificame',
+        name: i18n.t('channels:newChannel.providers.notificame.name'),
+        description: i18n.t('channels:newChannel.providers.notificame.description'),
+        comingSoon: true,
+      },
+      {
+        id: 'zapi',
+        name: i18n.t('channels:newChannel.providers.zapi.name'),
+        description: i18n.t('channels:newChannel.providers.zapi.description'),
+        comingSoon: true,
+      },
     ],
   },
   {
@@ -59,12 +62,22 @@ export const getChannelTypes = (): ChannelType[] => [
     name: i18n.t('channels:newChannel.channelTypes.instagram.name'),
     description: i18n.t('channels:newChannel.channelTypes.instagram.description'),
     type: 'instagram',
+    // v1 "Coming soon" — Meta forces new apps onto "Facebook Login for Business"
+    // (config_id flow), but the upstream chatwoot Instagram OAuth code targets
+    // the legacy "Facebook Login" product (scope-list flow). Until we either
+    // patch chatwoot or build a centralized OAuth proxy, IG cannot be
+    // self-served per-customer. Render visibly so the roadmap is clear.
+    comingSoon: true,
   },
   {
     id: 'facebook',
     name: i18n.t('channels:newChannel.channelTypes.facebook.name'),
     description: i18n.t('channels:newChannel.channelTypes.facebook.description'),
     type: 'facebook',
+    // v1 "Coming soon" — same Meta product mismatch as Instagram above; FB also
+    // requires per-app domain whitelisting which doesn't fit a multi-tenant
+    // wildcard subdomain model. Reassess for v2 with BYO-FB-app or proxy.
+    comingSoon: true,
   },
   {
     id: 'telegram',

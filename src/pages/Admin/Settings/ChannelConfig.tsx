@@ -703,17 +703,38 @@ export default function ChannelConfig() {
         <p className="text-sm text-sidebar-foreground/70 mt-1">{t('channels.description')}</p>
       </div>
 
-      <Tabs defaultValue="facebook">
+      <Tabs defaultValue="whatsapp">
         <TabsList className="flex w-full flex-wrap gap-1">
-          <TabsTrigger value="facebook">{t('channels.facebook.tabTitle')}</TabsTrigger>
+          {/* Facebook + Instagram tabs render visibly with a "Coming soon" badge
+              for v1 — Meta forces new apps onto Facebook Login for Business
+              (config_id flow), but upstream chatwoot's OAuth still uses the
+              legacy scope-list flow. The form is still reachable so existing
+              installs with credentials can edit them; new self-serve OAuth is
+              what's gated. CLAUDE.md "v1 channel scope". */}
+          <TabsTrigger value="facebook" className="gap-2">
+            {t('channels.facebook.tabTitle')}
+            <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-medium leading-none">
+              {t('channels.comingSoon')}
+            </span>
+          </TabsTrigger>
           <TabsTrigger value="whatsapp">{t('channels.whatsapp.tabTitle')}</TabsTrigger>
-          <TabsTrigger value="instagram">{t('channels.instagram.tabTitle')}</TabsTrigger>
+          <TabsTrigger value="instagram" className="gap-2">
+            {t('channels.instagram.tabTitle')}
+            <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-medium leading-none">
+              {t('channels.comingSoon')}
+            </span>
+          </TabsTrigger>
           <TabsTrigger value="evolution">{t('channels.evolution.tabTitle')}</TabsTrigger>
-          {/* Evolution Go tab hidden for v1 (CLAUDE.md "v1 channel scope" — paused channels).
-              Schema, form handler and TabsContent below are intentionally kept so any stack
-              that already has EVOLUTION_GO_* config rows populated keeps loading without
-              runtime errors. Re-enable for v2 by uncommenting the TabsTrigger.
-              <TabsTrigger value="evolution_go">{t('channels.evolutionGo.tabTitle')}</TabsTrigger> */}
+          {/* Evolution Go: visible "Coming soon" badge for v1. Schema/handler/
+              TabsContent kept fully functional so stacks with existing
+              EVOLUTION_GO_* rows still render and can be edited. The badge is
+              the only roadmap signal — clicking the tab still works. */}
+          <TabsTrigger value="evolution_go" className="gap-2">
+            {t('channels.evolutionGo.tabTitle')}
+            <span className="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-medium leading-none">
+              {t('channels.comingSoon')}
+            </span>
+          </TabsTrigger>
           {/* Twitter tab intentionally hidden — channel deprecated in customer-facing flow.
               Form, schema and submit handler are kept below so any installation that already
               has Twitter credentials configured can still load the page without runtime errors. */}
@@ -721,6 +742,9 @@ export default function ChannelConfig() {
 
         {/* Facebook Tab */}
         <TabsContent value="facebook" className="mt-4">
+          <div className="mb-4 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-700 dark:text-amber-300">
+            {t('channels.facebook.comingSoonNotice')}
+          </div>
           <ChannelFormCard
             onSubmit={facebookForm.handleSubmit(onSubmitFacebook)}
             saving={savingFacebook}
@@ -841,6 +865,9 @@ export default function ChannelConfig() {
 
         {/* Instagram Tab */}
         <TabsContent value="instagram" className="mt-4">
+          <div className="mb-4 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-700 dark:text-amber-300">
+            {t('channels.instagram.comingSoonNotice')}
+          </div>
           <ChannelFormCard
             onSubmit={instagramForm.handleSubmit(onSubmitInstagram)}
             saving={savingInstagram}
@@ -932,6 +959,9 @@ export default function ChannelConfig() {
 
         {/* Evolution Go Tab */}
         <TabsContent value="evolution_go" className="mt-4">
+          <div className="mb-4 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-700 dark:text-amber-300">
+            {t('channels.evolutionGo.comingSoonNotice')}
+          </div>
           <ChannelFormCard
             onSubmit={evolutionGoForm.handleSubmit(onSubmitEvolutionGo)}
             saving={savingEvolutionGo}

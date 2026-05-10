@@ -60,6 +60,9 @@ export const ChannelGrid = ({ channels, onChannelSelect, canFB, canIG }: Channel
           // Gate tiles by the backend-sourced `hasXxxConfig` booleans (single
           // source of truth with the admin save endpoint). Twitter has no
           // channel type yet — extend here if/when it lands.
+          // NOTE: `channel.comingSoon` is handled inside ChannelCard itself
+          // (it overrides whatever we pass for `disabled`/`disabledTooltip`),
+          // so we don't need to special-case it here.
           const disabled =
             channel.type === 'facebook'
               ? !canFB

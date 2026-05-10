@@ -102,6 +102,12 @@ export default function NewChannel() {
   };
 
   const handleChannelSelectWithValidation = (channel: ChannelType) => {
+    // Defense in depth: ChannelCard already disables the tile, but if a click
+    // ever leaks through (keyboard nav, future regressions), bail before the
+    // user reaches a non-functional form.
+    if (channel.comingSoon) {
+      return;
+    }
     // Check if Facebook configuration is available
     if (channel.type === 'facebook' && !canFB) {
       return toast.error(t('newChannel.messages.facebookConfigMissing'));
@@ -113,7 +119,14 @@ export default function NewChannel() {
     handleChannelSelect(channel);
   };
 
+
   const handleProviderSelectWithValidation = (provider: ProviderType) => {
+    // Defense in depth for v1-paused providers (Evolution Go, Notificame, Z-API).
+    // ProviderGrid disables the tile, but if a click leaks through (keyboard nav
+    // / future regression), bail before the user reaches a non-functional form.
+    if (provider.comingSoon) {
+      return;
+    }
     if (selectedChannel?.type === 'whatsapp') {
       if (provider.id === 'whatsapp_cloud' && !canWpCloud) {
         return toast.error(t('newChannel.messages.whatsappCloudConfigMissing'));

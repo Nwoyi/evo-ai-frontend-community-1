@@ -172,8 +172,10 @@
     "save": "Save Configuration",
     "saving": "Saving...",
     "dismissError": "Dismiss error",
+    "comingSoon": "Coming soon",
     "facebook": {
       "tabTitle": "Facebook",
+      "comingSoonNotice": "Facebook Messenger is coming soon. We're finalizing the OAuth flow for the new Meta \"Login for Business\" product — your saved credentials are kept and will activate automatically when it ships.",
       "fields": {
         "appId": "App ID",
         "verifyToken": "Verify Token",
@@ -212,6 +214,7 @@
     },
     "instagram": {
       "tabTitle": "Instagram",
+      "comingSoonNotice": "Instagram is coming soon. The new Meta \"Login for Business\" flow is being wired up — your saved credentials are kept and will activate automatically when it ships.",
       "fields": {
         "appId": "App ID",
         "appSecret": "App Secret",
@@ -243,6 +246,7 @@
     },
     "evolutionGo": {
       "tabTitle": "Evolution Go",
+      "comingSoonNotice": "Evolution Go is coming soon. We're focused on Evolution (the recommended provider) for v1 — existing Evolution Go credentials remain editable here.",
       "fields": {
         "apiUrl": "API URL",
         "adminSecret": "Admin Token"

@@ -10,6 +10,13 @@ export interface Provider {
   description: string;
   recommended?: boolean;
   popular?: boolean;
+  /**
+   * Marks the provider as "Coming soon" — rendered visibly in pickers but
+   * forced-disabled with a badge. Used for v1-paused channels (Evolution Go,
+   * Notificame, Z-API) so users can see what's planned without being able to
+   * configure them yet. See CLAUDE.md "v1 channel scope".
+   */
+  comingSoon?: boolean;
 }
 
 /**
@@ -35,6 +42,11 @@ export interface ChannelType {
   icon?: string;
   type: ChannelTypeId;
   providers?: Provider[];
+  /**
+   * Top-level "Coming soon" — same semantics as Provider.comingSoon but for
+   * the channel grid (Facebook, Instagram in v1, etc).
+   */
+  comingSoon?: boolean;
 }
 
 /**

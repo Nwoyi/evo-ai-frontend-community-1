@@ -9,6 +9,12 @@ export interface ChannelType {
   icon?: string;
   type: 'web_widget' | 'whatsapp' | 'facebook' | 'instagram' | 'telegram' | 'sms' | 'email' | 'api';
   providers?: ProviderType[];
+  /**
+   * v1-paused channels (Facebook, Instagram). Visible in the picker with a
+   * "Coming soon" badge instead of being removed. Mirror of the field on
+   * `@/types/channels/providers#ChannelType`.
+   */
+  comingSoon?: boolean;
 }
 
 export interface FormData {
