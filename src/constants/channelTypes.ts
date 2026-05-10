@@ -25,29 +25,33 @@ export const getChannelTypes = (): ChannelType[] => [
         id: 'evolution',
         name: i18n.t('channels:newChannel.providers.evolution.name'),
         description: i18n.t('channels:newChannel.providers.evolution.description'),
-        popular: false,
-      },
-      {
-        id: 'evolution_go',
-        name: i18n.t('channels:newChannel.providers.evolutionGo.name'),
-        description: i18n.t('channels:newChannel.providers.evolutionGo.description'),
         popular: true,
-      },
-      {
-        id: 'notificame',
-        name: i18n.t('channels:newChannel.providers.notificame.name'),
-        description: i18n.t('channels:newChannel.providers.notificame.description'),
-      },
-      {
-        id: 'zapi',
-        name: i18n.t('channels:newChannel.providers.zapi.name'),
-        description: i18n.t('channels:newChannel.providers.zapi.description'),
       },
       {
         id: 'twilio',
         name: i18n.t('channels:newChannel.providers.twilio.name'),
         description: i18n.t('channels:newChannel.providers.twilio.description'),
       },
+      // ---- Hidden for v1 (CLAUDE.md "v1 channel scope") --------------------
+      // Evolution Go, Notificame, Z-API are paused for v1. Same comment-out
+      // pattern as `other_provider` below (line ~109). Re-enable for v2 by
+      // uncommenting + verifying the corresponding form components still build.
+      // {
+      //   id: 'evolution_go',
+      //   name: i18n.t('channels:newChannel.providers.evolutionGo.name'),
+      //   description: i18n.t('channels:newChannel.providers.evolutionGo.description'),
+      //   popular: true,
+      // },
+      // {
+      //   id: 'notificame',
+      //   name: i18n.t('channels:newChannel.providers.notificame.name'),
+      //   description: i18n.t('channels:newChannel.providers.notificame.description'),
+      // },
+      // {
+      //   id: 'zapi',
+      //   name: i18n.t('channels:newChannel.providers.zapi.name'),
+      //   description: i18n.t('channels:newChannel.providers.zapi.description'),
+      // },
     ],
   },
   {

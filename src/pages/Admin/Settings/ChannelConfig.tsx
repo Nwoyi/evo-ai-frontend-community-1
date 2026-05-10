@@ -709,7 +709,11 @@ export default function ChannelConfig() {
           <TabsTrigger value="whatsapp">{t('channels.whatsapp.tabTitle')}</TabsTrigger>
           <TabsTrigger value="instagram">{t('channels.instagram.tabTitle')}</TabsTrigger>
           <TabsTrigger value="evolution">{t('channels.evolution.tabTitle')}</TabsTrigger>
-          <TabsTrigger value="evolution_go">{t('channels.evolutionGo.tabTitle')}</TabsTrigger>
+          {/* Evolution Go tab hidden for v1 (CLAUDE.md "v1 channel scope" — paused channels).
+              Schema, form handler and TabsContent below are intentionally kept so any stack
+              that already has EVOLUTION_GO_* config rows populated keeps loading without
+              runtime errors. Re-enable for v2 by uncommenting the TabsTrigger.
+              <TabsTrigger value="evolution_go">{t('channels.evolutionGo.tabTitle')}</TabsTrigger> */}
           {/* Twitter tab intentionally hidden — channel deprecated in customer-facing flow.
               Form, schema and submit handler are kept below so any installation that already
               has Twitter credentials configured can still load the page without runtime errors. */}
