@@ -67,7 +67,7 @@ export default function Contacts() {
   const navigate = useNavigate();
   const { can, isReady: permissionsReady } = useUserPermissions();
   const [state, setState] = useState<ContactsState>(INITIAL_STATE);
-  const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('table');
   const [bulkDeleteDialogOpen, setBulkDeleteDialogOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [editingContact, setEditingContact] = useState<Contact | null>(null);
@@ -454,7 +454,7 @@ export default function Contacts() {
 
   const handleCreateContact = () => {
     if (!can('contacts', 'create')) {
-      toast.error('Você não tem permissão para criar contatos');
+      toast.error("You don't have permission to create contacts");
       return;
     }
     setEditingContact(null);
@@ -483,11 +483,11 @@ export default function Contacts() {
 
   const handleMergeContacts = () => {
     if (state.selectedContactIds.length < 2) {
-      toast.error('Selecione pelo menos 2 contatos para mesclar');
+      toast.error('Select at least 2 contacts to merge');
       return;
     }
     if (!can('contacts', 'update')) {
-      toast.error('Você não tem permissão para mesclar contatos');
+      toast.error("You don't have permission to merge contacts");
       return;
     }
     const selectedContacts = state.contacts.filter(c => state.selectedContactIds.includes(c.id));
@@ -508,7 +508,7 @@ export default function Contacts() {
 
   const handleImportModalSubmit = async (file: File) => {
     if (!can('contacts', 'read')) {
-      toast.error('Você não tem permissão para visualizar contatos');
+      toast.error("You don't have permission to view contacts");
       return;
     }
 

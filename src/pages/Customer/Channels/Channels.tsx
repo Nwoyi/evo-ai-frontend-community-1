@@ -42,7 +42,7 @@ export default function Channels() {
   const [totalCount, setTotalCount] = useState(0);
   const [perPage, setPerPage] = useState(24);
   const [isDeleting, setIsDeleting] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('table');
   const [deleteModal, setDeleteModal] = useState<{
     isOpen: boolean;
     channel: Inbox | null;
