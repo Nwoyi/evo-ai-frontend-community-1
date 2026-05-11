@@ -89,10 +89,24 @@ export default function CustomToolForm({
   // Initialize form data when tool changes
   useEffect(() => {
     if (tool && mode !== 'create') {
+      // Defensive normalize: DB stores method uppercase via CHECK constraint,
+      // but if anything along the wire ever returns it lowercased/whitespaced,
+      // Radix Select would silently fail to match the SelectItem and the
+      // body_params conditional below would hide its content. Belt + suspenders.
+      const normalizedMethod = String(tool.method || 'GET').trim().toUpperCase();
+      if (tool.method && tool.method !== normalizedMethod) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          '[CustomToolForm] tool.method needed normalization:',
+          JSON.stringify(tool.method),
+          '->',
+          normalizedMethod
+        );
+      }
       const newFormData: FormData = {
         name: tool.name || '',
         description: tool.description || '',
-        method: tool.method || 'GET',
+        method: normalizedMethod,
         endpoint: tool.endpoint || '',
         headers: tool.headers as Record<string, string> || {},
         path_params: tool.path_params as Record<string, unknown> || {},
@@ -262,7 +276,7 @@ export default function CustomToolForm({
     const submitData: CustomToolFormData = {
       name: formData.name.trim(),
       description: formData.description.trim() || '',
-      method: formData.method,
+      method: String(formData.method || '').trim().toUpperCase(),
       endpoint: formData.endpoint.trim(),
       headers: formData.headers,
       path_params: formData.path_params,
@@ -383,7 +397,7 @@ export default function CustomToolForm({
             </p>
           </div>
 
-          {(formData.method === 'POST' || formData.method === 'PUT' || formData.method === 'PATCH') && (
+          {(['POST', 'PUT', 'PATCH'].includes((formData.method || '').toUpperCase())) && (
             <div className="space-y-2">
               <Label htmlFor="body_params">{t('form.fields.bodyParams.label')}</Label>
               <Textarea
